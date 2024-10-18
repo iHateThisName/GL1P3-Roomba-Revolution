@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class DialogController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    /*
+     // This is a template, use this when you are making dialogue triggers for quests, etc.
+    public Dialouge dialougeCat;
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseDown()
     {
-        
+        dialougeCat.currentDialogElement++;
+
+
+        Debug.Log("Hi, I got clicked.");
+        Destroy(this);
     }
+    */
 }
