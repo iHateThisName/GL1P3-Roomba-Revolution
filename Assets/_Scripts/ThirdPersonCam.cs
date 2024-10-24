@@ -7,7 +7,7 @@ public class ThirdPersonCam : MonoBehaviour
     [Header("Refrences")]
     public Transform orientation;
     public Transform player;
-    public Transform playerObj;
+    public Transform roomba;
     public Rigidbody rb;
 
     public float rotationSpeed;
@@ -34,7 +34,7 @@ public class ThirdPersonCam : MonoBehaviour
 
         if (inputDir != Vector3.zero)
         {
-            playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
+            roomba.forward = Vector3.Slerp(roomba.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
         }
     }
 }
