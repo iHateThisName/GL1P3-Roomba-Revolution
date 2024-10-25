@@ -368,7 +368,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 86ff51144c7992a4ea23260ebc1f408b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1136,6 +1136,22 @@ PrefabInstance:
     - target: {fileID: 3730912692964056236, guid: 4958dbd2dd80ef844b9e756e5b901000, type: 3}
       propertyPath: m_Name
       value: PlayerPrototype
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813623014602836552, guid: 4958dbd2dd80ef844b9e756e5b901000, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.9994632
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813623014602836552, guid: 4958dbd2dd80ef844b9e756e5b901000, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.032505047
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813623014602836552, guid: 4958dbd2dd80ef844b9e756e5b901000, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0034816754
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813623014602836552, guid: 4958dbd2dd80ef844b9e756e5b901000, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.002164286
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
