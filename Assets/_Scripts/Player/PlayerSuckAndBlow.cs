@@ -65,9 +65,8 @@ public class PlayerSuckAndBlow : MonoBehaviour {
     private IEnumerator MoveToPosition(Rigidbody pullableRigidBody) {
         // Set the rigidbody to kinematic to prevent interference from physics
         pullableRigidBody.isKinematic = true;
-        //pullableRigidBody.transform.parent = transform; // Attach to player to follow the player movment
 
-        pullableRigidBody.transform.SetParent(transform);
+        pullableRigidBody.transform.SetParent(transform); // Attach to player to follow the player movment
 
         Vector3 startPosition = pullableRigidBody.position;
         Vector3 targetPosition = transform.position; // Position in front
