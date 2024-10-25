@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.3820481, y: 0.842067, z: -1.2653141}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.6964934, y: 3.6964934, z: 3.6964934}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8668358703877138598}
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   groundDrag: 5
-  playerHight: 2
+  playerHight: 5
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
@@ -104,7 +104,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
@@ -134,7 +134,7 @@ Transform:
   m_GameObject: {fileID: 7922169151174178458}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.556, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -150,15 +150,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 407f15af99c9f4194a0cfd47564666e5, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.8485
+      value: 28.044083
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 407f15af99c9f4194a0cfd47564666e5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.27627578
+      value: 4.191453
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 407f15af99c9f4194a0cfd47564666e5, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.8485
+      value: 28.044083
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 407f15af99c9f4194a0cfd47564666e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -166,11 +166,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 407f15af99c9f4194a0cfd47564666e5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00019968
+      value: -0.55
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 407f15af99c9f4194a0cfd47564666e5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.00026047
+      value: -0.0083016
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 407f15af99c9f4194a0cfd47564666e5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -182,11 +182,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 407f15af99c9f4194a0cfd47564666e5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 407f15af99c9f4194a0cfd47564666e5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 407f15af99c9f4194a0cfd47564666e5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -200,6 +200,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 407f15af99c9f4194a0cfd47564666e5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 407f15af99c9f4194a0cfd47564666e5, type: 3}
       propertyPath: m_Name
       value: RoombaModel1
