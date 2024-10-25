@@ -10,5 +10,5 @@ EditorBuildSettings:
     guid: e93a241724054ee44a0141fc604b9138
   - enabled: 1
     path: Assets/Scenes/PrototypeBuildScene.unity
-    guid: bd4a3ca3f859a62469bbd7fa3b9410bc
+    guid: c0e50dfee83195945ab15c7a6d1ba3cd
   m_configObjects: {}

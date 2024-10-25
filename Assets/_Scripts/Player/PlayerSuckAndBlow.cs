@@ -42,8 +42,7 @@ public class PlayerSuckAndBlow : MonoBehaviour {
             childRb.isKinematic = false;
 
             // Appling Push Force
-            //Vector3 direction = (transform.position - childRb.position).normalized;
-            childRb.AddForce(Vector3.forward * suckSpeed, ForceMode.Force);
+            childRb.AddForce(transform.forward * suckSpeed, ForceMode.Force);
             isSucking = false;
         }
     }
