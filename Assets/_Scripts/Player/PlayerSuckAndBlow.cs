@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerSuckAndBlow : MonoBehaviour {
 
-    [SerializeField]
     private HashSet<Rigidbody> pullableObjectsInZone = new HashSet<Rigidbody>();
     private bool isHolding = false;
 
@@ -32,7 +31,7 @@ public class PlayerSuckAndBlow : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Mouse0)) {
 
-            if (hasPickUp()) {
+            if (HasPickUp()) {
                 GameObject childGameObject = pickUpLocation.GetChild(0).gameObject;
                 Rigidbody childRb = childGameObject.GetComponent<Rigidbody>();
                 ContactPointController cp = childGameObject.GetComponentInChildren<ContactPointController>();
@@ -116,7 +115,7 @@ public class PlayerSuckAndBlow : MonoBehaviour {
     }
 
 
-    public bool hasPickUp() {
+    public bool HasPickUp() {
         return pickUpLocation.childCount > 0;
     }
 
