@@ -1,56 +1,79 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class PlayerSuckAndBlow : MonoBehaviour {
 
     [SerializeField]
-    private float suckSpeed = 10f;
     private HashSet<Rigidbody> pullableObjectsInZone = new HashSet<Rigidbody>();
-    private bool isSucking = false;
+    private bool isHolding = false;
 
+    [SerializeField]
+    private PlayerSuckPickUp playerSuckPickUp;
+
+    [SerializeField]
+    private Transform pickUpLocation;
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Mouse1)) {
-
-            if (pullableObjectsInZone.Count > 0) {
-                foreach (Rigidbody pullableRigidBody in pullableObjectsInZone) {
-
-                    if (pullableRigidBody.mass < 0.9f && !isSucking) {
-                        // Pick Up the Item
-                        Debug.Log($"{pullableRigidBody.gameObject.name} picked up");
-                        isSucking = true;
-                        StartCoroutine(MoveToPosition(pullableRigidBody));
-
-                    } else {
-                        // Applies the push force
-                        Vector3 direction = (transform.position - pullableRigidBody.position).normalized;
-                        pullableRigidBody.AddForce(direction * suckSpeed, ForceMode.Force);
-
-                    }
-
+        if (Input.GetKeyDown(KeyCode.Mouse1) && !isHolding) {
+            foreach (Rigidbody pickableRigidBody in playerSuckPickUp.pickUpObjectsInZone) {
+                if (!isHolding) {
+                    Debug.Log($"{pickableRigidBody.gameObject.name} picked up");
+                    isHolding = true;
+                    StartCoroutine(MoveToPosition(pickableRigidBody));
+                } else {
+                    AppliePullForce(pickableRigidBody);
                 }
+            }
 
+            foreach (Rigidbody pullableRigidBody in pullableObjectsInZone) {
+                AppliePullForce(pullableRigidBody);
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && hasPickUp()) {
-            GameObject childGameObject = gameObject.transform.GetChild(0).gameObject;
-            Rigidbody childRb = childGameObject.GetComponent<Rigidbody>();
+        if (Input.GetKeyDown(KeyCode.Mouse0)) {
 
-            childGameObject.transform.SetParent(null);
-            childRb.isKinematic = false;
+            if (hasPickUp()) {
+                GameObject childGameObject = pickUpLocation.GetChild(0).gameObject;
+                Rigidbody childRb = childGameObject.GetComponent<Rigidbody>();
+                ContactPointController cp = childGameObject.GetComponentInChildren<ContactPointController>();
 
-            // Appling Push Force
-            childRb.AddForce(transform.forward * suckSpeed, ForceMode.Force);
-            isSucking = false;
+                childGameObject.transform.SetParent(null);
+                childRb.isKinematic = false;
+
+                // Appling Push Force
+                if (cp != null) {
+                    childRb.AddForce(transform.forward, ForceMode.Impulse);
+                } else {
+                    childRb.AddForce(transform.forward, ForceMode.Impulse);
+                }
+                isHolding = false;
+            } else {
+                // Applies the push force
+                foreach (Rigidbody pullableRigidBody in pullableObjectsInZone) {
+                    pullableRigidBody.AddForce(transform.forward, ForceMode.Impulse);
+                }
+            }
         }
     }
 
+    private void AppliePullForce(Rigidbody pullableRigidBody) {
+        ContactPointController cp = pullableRigidBody.GetComponentInChildren<ContactPointController>();
+        Vector3 direction = (pickUpLocation.position - pullableRigidBody.position).normalized; // Fallback
+        if (cp != null) {
+            direction = (pickUpLocation.position - cp.GetContactPoint().position).normalized;
+        }
+        pullableRigidBody.AddForce(direction, ForceMode.Impulse);
+    }
+
     private void OnTriggerEnter(Collider collider) {
-        if (collider.CompareTag("Suckable") && collider.attachedRigidbody != null) {
+        if ((collider.CompareTag("Suckable") || collider.CompareTag("SuckAndPickup")) && collider.attachedRigidbody != null) {
             pullableObjectsInZone.Add(collider.attachedRigidbody);
             Debug.Log($"In suck zone, {collider.gameObject.name}");
+
+            ContactPointController cp = collider.GetComponentInChildren<ContactPointController>();
+            if (cp != null) {
+                cp.isLooking = true;
+            }
         }
     }
 
@@ -58,32 +81,43 @@ public class PlayerSuckAndBlow : MonoBehaviour {
         if (pullableObjectsInZone.Contains(collider.attachedRigidbody)) {
             pullableObjectsInZone.Remove(collider.attachedRigidbody);
             Debug.Log($"Left suck zone, {collider.gameObject.name}");
+
+            ContactPointController cp = collider.GetComponentInChildren<ContactPointController>();
+            if (cp != null) {
+                cp.isLooking = false;
+            }
         }
     }
 
     private IEnumerator MoveToPosition(Rigidbody pullableRigidBody) {
-        // Set the rigidbody to kinematic to prevent interference from physics
-        pullableRigidBody.isKinematic = true;
+        pullableRigidBody.isKinematic = true; // Stops gravity
+        pullableRigidBody.transform.SetParent(pickUpLocation); // Attach to player to follow the player movment
 
-        pullableRigidBody.transform.SetParent(transform); // Attach to player to follow the player movment
+        ContactPointController cp = pullableRigidBody.gameObject.transform.GetComponentInChildren<ContactPointController>();
 
-        Vector3 startPosition = pullableRigidBody.position;
-        Vector3 targetPosition = transform.position; // Position in front
+        Vector3 startPosition = pullableRigidBody.position; // Fallback position
+        if (cp != null) {
+            startPosition = cp.GetContactPoint().position;
+        }
 
         float elapsedTime = 0f;
-        float duration = 1f;
+        float duration = 0.8f;
 
         while (elapsedTime < duration) {
+
+            Vector3 targetPosition = pickUpLocation.position; // Position in front
+
             pullableRigidBody.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        pullableRigidBody.position = targetPosition;
+        pullableRigidBody.MovePosition(pickUpLocation.position);
     }
 
+
     public bool hasPickUp() {
-        return gameObject.transform.childCount > 0;
+        return pickUpLocation.childCount > 0;
     }
 
 }
