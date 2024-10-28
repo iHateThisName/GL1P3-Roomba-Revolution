@@ -18,7 +18,8 @@ public class PlayerSuckAndBlow : MonoBehaviour {
                 if (!isHolding) {
                     Debug.Log($"{pickableRigidBody.gameObject.name} picked up");
                     isHolding = true;
-                    StartCoroutine(MoveToPosition(pickableRigidBody));
+                    //StartCoroutine(MoveToPosition(pickableRigidBody));
+                    PickUp(pickableRigidBody);
                 } else {
                     AppliePullForce(pickableRigidBody);
                 }
@@ -53,6 +54,21 @@ public class PlayerSuckAndBlow : MonoBehaviour {
                 }
             }
         }
+    }
+
+    private void PickUp(Rigidbody pickableRigidBody) {
+        ContactPointController cp = pickableRigidBody.gameObject.transform.GetComponentInChildren<ContactPointController>();
+        pickableRigidBody.isKinematic = true;
+
+        if (cp != null) {
+            Transform Offset = cp.GetContactPoint();
+            Vector3 offsetPosition = pickUpLocation.position - (Offset.position - pickableRigidBody.transform.position);
+            pickableRigidBody.transform.SetPositionAndRotation(offsetPosition, pickUpLocation.rotation * Quaternion.Inverse(Offset.parent.localRotation));
+        } else {
+            // Fallback
+            pickableRigidBody.transform.SetPositionAndRotation(pickUpLocation.position, transform.parent.parent.rotation);
+        }
+        pickableRigidBody.transform.SetParent(pickUpLocation);
     }
 
     private void AppliePullForce(Rigidbody pullableRigidBody) {
