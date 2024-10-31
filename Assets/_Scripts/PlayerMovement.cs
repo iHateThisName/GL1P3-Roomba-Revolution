@@ -10,9 +10,10 @@ public class PlayerMovement : MonoBehaviour
     public float groundDrag;
 
     [Header("Ground Check")]
-    public float playerHight;
+    public float playerHeight;
     public LayerMask whatIsGround;
     bool grounded;
+
 
     public Transform orientation;
 
@@ -21,13 +22,11 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 moveDirection;
 
-    public Rigidbody rb;
-
-
+    Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-       
+        rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
     }
 
@@ -35,48 +34,43 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHight * 0.5f + 0.2f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
         MyInput();
         SpeedControl();
 
         // Handle drag
-        if (grounded)
-        {
+        if (grounded){
             rb.drag = groundDrag;
         }
-        else
-        {
+        else{
             rb.drag = 0;
         }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         MovePlayer();
     }
 
-    private void MyInput()
-    {
+    void MyInput(){
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+
     }
 
-    private void MovePlayer()
-    {
+    void MovePlayer(){
         // Calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
     }
 
-    private void SpeedControl()
-    {
+    void SpeedControl(){
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         // Limit velocity if needed
-        if (flatVel.magnitude > moveSpeed)
-        {
+        if (flatVel.magnitude > moveSpeed){
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
