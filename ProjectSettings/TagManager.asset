@@ -7,6 +7,7 @@ TagManager:
   - PlayerPickUpPoint
   - SuckAndPickup
   - Suckable
+  - Elevator
   layers:
   - Default
   - TransparentFX

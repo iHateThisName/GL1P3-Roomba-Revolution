@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -73,6 +74,14 @@ public class PlayerMovement : MonoBehaviour
         if (flatVel.magnitude > moveSpeed){
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.linearVelocity = new Vector3(limitedVel.x, rb.linearVelocity.y, limitedVel.z);
+        }
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.CompareTag("Elevator"))
+        {
+            SceneManager.LoadScene(1);
         }
     }
 }
