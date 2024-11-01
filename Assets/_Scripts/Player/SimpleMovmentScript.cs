@@ -11,7 +11,7 @@ public class SimpleMovmentScript : MonoBehaviour {
 
         Vector3 movementDirection = new Vector3(horizontalDirection, 0f, verticalDirection);
 
-        transform.Translate(movementDirection * .5f * Time.deltaTime);
+        transform.Translate(movementDirection * 5f * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.Q)) {
             transform.Rotate(Vector3.up * 10f);
