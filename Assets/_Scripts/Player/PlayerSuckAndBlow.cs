@@ -6,19 +6,23 @@ public class PlayerSuckAndBlow : MonoBehaviour {
 
     private HashSet<Rigidbody> pullableObjectsInZone = new HashSet<Rigidbody>();
     private bool isHolding = false;
+    private bool isSuckForcedApplied = false;
 
     [SerializeField]
     private PlayerSuckPickUp playerSuckPickUp;
 
     [SerializeField]
     private Transform pickUpLocation;
+
+    [SerializeField]
+    private InputManager inputManager;
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Mouse1) && !isHolding) {
+        if (!isSuckForcedApplied && inputManager.isSucking && !isHolding) {
+            isSuckForcedApplied = true;
             foreach (Rigidbody pickableRigidBody in playerSuckPickUp.pickUpObjectsInZone) {
                 if (!isHolding) {
                     Debug.Log($"{pickableRigidBody.gameObject.name} picked up");
                     isHolding = true;
-                    //StartCoroutine(MoveToPosition(pickableRigidBody));
                     PickUp(pickableRigidBody);
                 } else {
                     AppliePullForce(pickableRigidBody);
@@ -28,9 +32,11 @@ public class PlayerSuckAndBlow : MonoBehaviour {
             foreach (Rigidbody pullableRigidBody in pullableObjectsInZone) {
                 AppliePullForce(pullableRigidBody);
             }
+        } else if (!inputManager.isSucking) {
+            isSuckForcedApplied = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0)) {
+        if (inputManager.isBlowing) {
 
             if (HasPickUp()) {
                 GameObject childGameObject = pickUpLocation.GetChild(0).gameObject;
