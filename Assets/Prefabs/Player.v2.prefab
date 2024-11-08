@@ -31,8 +31,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362489586089075313}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08470987, y: 0.43795848, z: -0.041496694, w: 0.89403284}
-  m_LocalPosition: {x: -4.171837, y: 1.0096166, z: -3.2362933}
+  m_LocalRotation: {x: 0.21017252, y: 0.00511355, z: -0.0010992965, w: 0.9776504}
+  m_LocalPosition: {x: -0.12992954, y: 5.5991592, z: -8.230156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -59,10 +59,10 @@ MonoBehaviour:
   m_LegacyPriority: 0
   Target:
     TrackingTarget: {fileID: 8036068011992260749}
-    LookAtTarget: {fileID: 0}
-    CustomLookAtTarget: 0
+    LookAtTarget: {fileID: 7509036562046505685}
+    CustomLookAtTarget: 1
   Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 45
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -104,18 +104,18 @@ MonoBehaviour:
   Radius: 10
   Orbits:
     Top:
-      Radius: 3
+      Radius: 8
       Height: 6
     Center:
-      Radius: 7
-      Height: 2
+      Radius: 8
+      Height: 5
     Bottom:
-      Radius: 5
-      Height: 1
+      Radius: 8
+      Height: 4
     SplineCurvature: 1
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: 52.197556
+    Value: 0.9044538
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -125,7 +125,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: -8.170987
+    Value: 26.117712
     Center: 17.5
     Range: {x: -10, y: 45}
     Wrap: 0
@@ -264,6 +264,8 @@ MonoBehaviour:
   playerObj: {fileID: 3638383421305608008}
   rb: {fileID: 1294685438551454936}
   rotationSpeed: 7
+  combatLookAt: {fileID: 7509036562046505685}
+  currentStyle: 1
 --- !u!114 &1811149926026048053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,7 +777,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7509036562046505685}
   m_Father: {fileID: 8036068011992260749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &957393203478197288
@@ -820,6 +823,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3638383421305608008}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6479065391982787076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7509036562046505685}
+  m_Layer: 0
+  m_Name: CombatLookAt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7509036562046505685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479065391982787076}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 4.19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3473587200052051793}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7292521271428698390
 GameObject:
