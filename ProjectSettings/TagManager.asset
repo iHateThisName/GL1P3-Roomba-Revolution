@@ -9,6 +9,7 @@ TagManager:
   - Suckable
   - Door
   - Elevator
+  - Trap
   layers:
   - Default
   - TransparentFX
