@@ -9,6 +9,7 @@ public class PauseMenuScripts : MonoBehaviour
         pauseMenu.SetActive(false);
         pauseBlur.SetActive(false);
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void FixedUpdate()
@@ -18,6 +19,7 @@ public class PauseMenuScripts : MonoBehaviour
             Time.timeScale = 0f;
             pauseMenu.SetActive(true);
             pauseBlur.SetActive(true);
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 
