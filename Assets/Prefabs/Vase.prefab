@@ -225,7 +225,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2465010530703878618}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66446ff7044363242a13baf527e04fcf, type: 3}
   m_Name: 
@@ -674,6 +674,7 @@ GameObject:
   - component: {fileID: 5679786956773308656}
   - component: {fileID: 182438283114386353}
   - component: {fileID: 2089203944718593836}
+  - component: {fileID: 8767298259885710969}
   m_Layer: 0
   m_Name: VaseBody
   m_TagString: Untagged
@@ -773,6 +774,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8246494051924840529, guid: 3a9a68b77a99ec5469c450af2cbf37ae, type: 3}
+--- !u!114 &8767298259885710969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6166316441052718515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66446ff7044363242a13baf527e04fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Body: {fileID: 6166316441052718515}
+  Shard: {fileID: 6457358658274140747}
+  DestroyOnBreak: {fileID: 2465010530703878618}
+  broken: 0
 --- !u!1 &6457358658274140747
 GameObject:
   m_ObjectHideFlags: 0

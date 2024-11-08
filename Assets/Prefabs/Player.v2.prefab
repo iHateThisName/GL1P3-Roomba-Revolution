@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1610805025618125380}
   - component: {fileID: 230356576724877411}
   - component: {fileID: 1811149926026048053}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FreeLook Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
     SplineCurvature: 1
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: 0.9044538
+    Value: 0.90444946
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 7359607656200326411}
   - component: {fileID: 8806171082231481982}
   - component: {fileID: 4704238433593469529}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SuckZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 4257288877318269542}
   - component: {fileID: 3470789213710792026}
   - component: {fileID: 79053637010883906}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 3638383421305608008}
   - component: {fileID: 2721366375902854862}
   - component: {fileID: 6276211955027822751}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RommbaModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -571,7 +571,6 @@ Transform:
   m_Children:
   - {fileID: 1761452440063819579}
   - {fileID: 8494073589625781482}
-  - {fileID: 8258296193235252150}
   - {fileID: 6240890397287002440}
   m_Father: {fileID: 8036068011992260749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -631,7 +630,7 @@ GameObject:
   - component: {fileID: 7985625583345639477}
   - component: {fileID: 721479657745514375}
   - component: {fileID: 7178574364708825111}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PickUpZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -748,7 +747,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8494073589625781482}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Zones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -770,6 +769,7 @@ Transform:
   m_Children:
   - {fileID: 7071327913662782279}
   - {fileID: 5287035712894267240}
+  - {fileID: 8258296193235252150}
   m_Father: {fileID: 3638383421305608008}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3813197818107879290
@@ -782,7 +782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3473587200052051793}
   - component: {fileID: 957393203478197288}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: InputManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -826,7 +826,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8258296193235252150}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PickUpLocation
   m_TagString: PlayerPickUpPoint
   m_Icon: {fileID: 0}
@@ -842,11 +842,11 @@ Transform:
   m_GameObject: {fileID: 5300176978635536144}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.283, z: 0.548}
-  m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+  m_LocalPosition: {x: 0, y: 0.849, z: 0.14399993}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3638383421305608008}
+  m_Father: {fileID: 8494073589625781482}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6479065391982787076
 GameObject:
@@ -857,7 +857,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7509036562046505685}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CombatLookAt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -890,7 +890,7 @@ GameObject:
   - component: {fileID: 8036068011992260749}
   - component: {fileID: 6239393774409203552}
   - component: {fileID: 1294685438551454936}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player.v2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1012,6 +1012,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6b8ca1fe07896034e9247ab2ab4e5697, type: 3}
       propertyPath: m_Name
       value: Roomba
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b8ca1fe07896034e9247ab2ab4e5697, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
