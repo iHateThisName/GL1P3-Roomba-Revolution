@@ -8,18 +8,20 @@ public class PauseMenuScripts : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         pauseBlur.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.None;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             pauseMenu.SetActive(true);
             pauseBlur.SetActive(true);
-            Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 0f;
         }
     }
 
@@ -32,4 +34,5 @@ public class PauseMenuScripts : MonoBehaviour
     {
         GetComponent<PlayerBGone>().QuitGame();
     }
+
 }

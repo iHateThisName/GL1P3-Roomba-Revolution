@@ -1,3 +1,4 @@
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ public class TimerBattery : MonoBehaviour
 
     public Color m_fullTime = Color.green;
     public Color m_noTime = Color.red;
+
+    static int currentScene;
 
     private float m_time;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
