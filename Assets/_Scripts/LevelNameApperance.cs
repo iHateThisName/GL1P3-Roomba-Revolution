@@ -46,4 +46,9 @@ public class LevelNameApperance : MonoBehaviour
         uiTextObject.SetActive(false);
         yield return null;
     }
+
+    public void Loosing()
+    {
+        uiText.text = "Damn, you lost.";
+    }
 }

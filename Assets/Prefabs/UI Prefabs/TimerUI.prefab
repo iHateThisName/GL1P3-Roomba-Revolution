@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_slider: {fileID: 8118159770620588488}
-  timer: 10
+  timer: 300
   m_FillImage: {fileID: 7147903983436408627}
   m_fullTime: {r: 0, g: 1, b: 0, a: 1}
   m_noTime: {r: 1, g: 0, b: 0, a: 1}
