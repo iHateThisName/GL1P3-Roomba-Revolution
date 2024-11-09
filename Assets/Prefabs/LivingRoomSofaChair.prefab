@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3142102248408880558
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 8c4db3e3d1a0526408b7b4a566c32f04, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 13.482183
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c4db3e3d1a0526408b7b4a566c32f04, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10.477295
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c4db3e3d1a0526408b7b4a566c32f04, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 12.530845
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c4db3e3d1a0526408b7b4a566c32f04, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c4db3e3d1a0526408b7b4a566c32f04, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.16
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c4db3e3d1a0526408b7b4a566c32f04, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.32
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c4db3e3d1a0526408b7b4a566c32f04, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.37924138
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c4db3e3d1a0526408b7b4a566c32f04, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c4db3e3d1a0526408b7b4a566c32f04, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.92529774
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c4db3e3d1a0526408b7b4a566c32f04, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c4db3e3d1a0526408b7b4a566c32f04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c4db3e3d1a0526408b7b4a566c32f04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 224.573
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c4db3e3d1a0526408b7b4a566c32f04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8c4db3e3d1a0526408b7b4a566c32f04, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bc2211df77a651c468e693fd901c1f05, type: 2}
+    - target: {fileID: 919132149155446097, guid: 8c4db3e3d1a0526408b7b4a566c32f04, type: 3}
+      propertyPath: m_Name
+      value: LivingRoomSofaChair
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8c4db3e3d1a0526408b7b4a566c32f04, type: 3}
