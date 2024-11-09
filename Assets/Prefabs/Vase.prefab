@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 670711552815588762}
   m_Layer: 0
   m_Name: Vase_cell3
-  m_TagString: SuckAndPickup
+  m_TagString: Suckable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1985727177589896804}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.8
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -136,53 +136,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &2056502878053270199
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7884299413573870253}
-  - component: {fileID: 8498316837647763600}
-  m_Layer: 0
-  m_Name: LookAt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &7884299413573870253
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056502878053270199}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.02}
-  m_LocalScale: {x: 0.03, y: 0.029999997, z: 0.029999997}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1422077594675874565}
-  m_Father: {fileID: 7994832992328239724}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8498316837647763600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056502878053270199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 060d87abcebe2a743b176cd64bf9f470, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerPickUpPoint: {fileID: 0}
-  isLooking: 0
 --- !u!1 &2465010530703878618
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,9 +145,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3702855414389431241}
-  - component: {fileID: 155129780275087288}
   - component: {fileID: 3144762101787570171}
-  - component: {fileID: 760590349078158281}
+  - component: {fileID: 8593608936844306711}
   m_Layer: 0
   m_Name: Vase
   m_TagString: SuckAndPickup
@@ -215,25 +167,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3960595601476251219}
   - {fileID: 7994832992328239724}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &155129780275087288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2465010530703878618}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66446ff7044363242a13baf527e04fcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Body: {fileID: 6166316441052718515}
-  Shard: {fileID: 6457358658274140747}
-  DestroyOnBreak: {fileID: 2465010530703878618}
-  broken: 0
 --- !u!54 &3144762101787570171
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -261,8 +198,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &760590349078158281
-SphereCollider:
+--- !u!136 &8593608936844306711
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -279,9 +216,11 @@ SphereCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1.1
-  m_Center: {x: 0, y: 1.15, z: 0}
+  serializedVersion: 2
+  m_Radius: 0.5656508
+  m_Height: 2.5271027
+  m_Direction: 1
+  m_Center: {x: 0.03044331, y: 0.76355135, z: 0.03520751}
 --- !u!1 &2667022980361766640
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +236,7 @@ GameObject:
   - component: {fileID: 3711427147346914335}
   m_Layer: 0
   m_Name: Vase_cell6
-  m_TagString: SuckAndPickup
+  m_TagString: Suckable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -399,7 +338,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2667022980361766640}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.8
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -418,7 +357,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &2728069299864625493
+--- !u!1 &2956236032233674294
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -426,10 +365,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1422077594675874565}
-  - component: {fileID: 8381112269848148001}
-  - component: {fileID: 2367022043881674687}
-  - component: {fileID: 889953749836404706}
+  - component: {fileID: 3832919417493033070}
+  - component: {fileID: 1192440556359490655}
+  - component: {fileID: 9116061838841738159}
   m_Layer: 0
   m_Name: ContactPoint
   m_TagString: Untagged
@@ -437,36 +375,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1422077594675874565
+--- !u!4 &3832919417493033070
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2728069299864625493}
+  m_GameObject: {fileID: 2956236032233674294}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalPosition: {x: 0, y: 0, z: 1.3}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7884299413573870253}
+  m_Father: {fileID: 8701795140915941315}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8381112269848148001
+--- !u!33 &1192440556359490655
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2728069299864625493}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &2367022043881674687
+  m_GameObject: {fileID: 2956236032233674294}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &9116061838841738159
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2728069299864625493}
+  m_GameObject: {fileID: 2956236032233674294}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -483,7 +421,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: -382652638819485698, guid: 6b8ca1fe07896034e9247ab2ab4e5697, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -505,27 +443,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &889953749836404706
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2728069299864625493}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4161066930551497388
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +458,7 @@ GameObject:
   - component: {fileID: 8209427086355584284}
   m_Layer: 0
   m_Name: Vase_cell1
-  m_TagString: SuckAndPickup
+  m_TagString: Suckable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -643,7 +560,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4161066930551497388}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.8
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -662,6 +579,86 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &4196596234965174377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3960595601476251219}
+  m_Layer: 0
+  m_Name: Eye
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3960595601476251219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4196596234965174377}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8701795140915941315}
+  m_Father: {fileID: 3702855414389431241}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5768979988708716897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8701795140915941315}
+  - component: {fileID: 3955786069740352316}
+  m_Layer: 0
+  m_Name: LookAt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8701795140915941315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5768979988708716897}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3832919417493033070}
+  m_Father: {fileID: 3960595601476251219}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3955786069740352316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5768979988708716897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 060d87abcebe2a743b176cd64bf9f470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPickUpPoint: {fileID: 0}
+  eyePupil: {fileID: 3832919417493033070}
+  isLooking: 1
 --- !u!1 &6166316441052718515
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,8 +670,9 @@ GameObject:
   - component: {fileID: 7994832992328239724}
   - component: {fileID: 5679786956773308656}
   - component: {fileID: 182438283114386353}
-  - component: {fileID: 2089203944718593836}
   - component: {fileID: 8767298259885710969}
+  - component: {fileID: 8376489267883645964}
+  - component: {fileID: 7485366533069278843}
   m_Layer: 0
   m_Name: VaseBody
   m_TagString: Untagged
@@ -695,7 +693,6 @@ Transform:
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7884299413573870253}
   - {fileID: 1099761674765017732}
   m_Father: {fileID: 3702855414389431241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -752,7 +749,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2089203944718593836
+--- !u!114 &8767298259885710969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6166316441052718515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66446ff7044363242a13baf527e04fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Body: {fileID: 6166316441052718515}
+  Shard: {fileID: 6457358658274140747}
+  DestroyOnBreak: {fileID: 2465010530703878618}
+  broken: 0
+--- !u!64 &8376489267883645964
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -774,22 +787,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8246494051924840529, guid: 3a9a68b77a99ec5469c450af2cbf37ae, type: 3}
---- !u!114 &8767298259885710969
-MonoBehaviour:
+--- !u!65 &7485366533069278843
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6166316441052718515}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66446ff7044363242a13baf527e04fcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Body: {fileID: 6166316441052718515}
-  Shard: {fileID: 6457358658274140747}
-  DestroyOnBreak: {fileID: 2465010530703878618}
-  broken: 0
+  serializedVersion: 3
+  m_Size: {x: 0.038866654, y: 0.03390807, z: 0.034962904}
+  m_Center: {x: 0, y: 3.8527558e-17, z: 0.02212975}
 --- !u!1 &6457358658274140747
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,7 +823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1099761674765017732
 Transform:
   m_ObjectHideFlags: 0
@@ -843,7 +861,7 @@ GameObject:
   - component: {fileID: 2244121655239063258}
   m_Layer: 0
   m_Name: Vase_cell4
-  m_TagString: SuckAndPickup
+  m_TagString: Suckable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -945,7 +963,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7167964092189357179}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.8
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -979,7 +997,7 @@ GameObject:
   - component: {fileID: 6966621638071482989}
   m_Layer: 0
   m_Name: Vase_cell2
-  m_TagString: SuckAndPickup
+  m_TagString: Suckable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1081,7 +1099,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8164068733346073147}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.8
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1115,7 +1133,7 @@ GameObject:
   - component: {fileID: 1314129569608491017}
   m_Layer: 0
   m_Name: Vase_cell5
-  m_TagString: SuckAndPickup
+  m_TagString: Suckable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1217,7 +1235,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8181706758512926579}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.8
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1251,7 +1269,7 @@ GameObject:
   - component: {fileID: 6980294256573354270}
   m_Layer: 0
   m_Name: Vase_cell7
-  m_TagString: SuckAndPickup
+  m_TagString: Suckable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1353,7 +1371,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8557575448488393024}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.8
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerSuckAndBlow : MonoBehaviour {
-
     private HashSet<Rigidbody> pullableObjectsInZone = new HashSet<Rigidbody>();
     private bool isHolding = false;
     private bool isPullForcedApplied = false;
@@ -15,19 +14,11 @@ public class PlayerSuckAndBlow : MonoBehaviour {
     [SerializeField] private Transform pickUpLocation;
     [SerializeField] private InputManager inputManager;
     void Update() {
-        if (this.inputManager.isSucking && !this.isHolding) {
-            foreach (Rigidbody pickableRigidBody in playerSuckPickUp.pickUpObjectsInZone) {
-                if (!this.isHolding) {
-                    //Debug.Log($"{pickableRigidBody.gameObject.name} picked up");
-                    this.isHolding = true;
-                    PickUp(pickableRigidBody);
-                } else {
-                    AppliePullForce(pickableRigidBody);
-                }
-            }
-
-            foreach (Rigidbody pullableRigidBody in this.pullableObjectsInZone) {
-                AppliePullForce(pullableRigidBody);
+        if (this.inputManager.isSucking) {
+            if (this.isHolding && !HasPickUp()) {
+                this.isHolding = false;
+            } else {
+                HandlePullableObjects();
             }
             this.isPullForcedApplied = true;
         } else {
@@ -35,27 +26,68 @@ public class PlayerSuckAndBlow : MonoBehaviour {
         }
 
         if (this.inputManager.isBlowing) {
-
-            float effectiveForce = this.isPushForcedApplied ? this.addedForce : this.addedForce * 0.8f;
-            if (HasPickUp()) {
-                DropPickUpItem();
-                this.isHolding = false;
-                this.isHoldingWaitTimeFinished = false;
-                StartCoroutine(PushWaitTime(0.5f));
-
-            } else if (this.isHoldingWaitTimeFinished) {
-                // Applies the push force
-                foreach (Rigidbody pullableRigidBody in this.pullableObjectsInZone) {
-                    pullableRigidBody.AddForce(transform.forward * effectiveForce, ForceMode.Force);
-                    Debug.Log("Pushing");
-                }
-            }
+            HandleBlowableObjects();
             this.isPushForcedApplied = true;
         } else {
             this.isPushForcedApplied = false;
             this.isHoldingWaitTimeFinished = true;
         }
 
+    }
+
+    private void HandleBlowableObjects() {
+        float effectiveForce = this.isPushForcedApplied ? this.addedForce : this.addedForce * 0.8f;
+        if (HasPickUp()) {
+            DropPickUpItem();
+            this.isHolding = false;
+            this.isHoldingWaitTimeFinished = false;
+            StartCoroutine(PushWaitTime(0.5f));
+
+        } else if (this.isHoldingWaitTimeFinished) {
+            List<Rigidbody> tempToRemove = new List<Rigidbody>();
+
+            // Applies the push force
+            foreach (Rigidbody pullableRigidBody in this.pullableObjectsInZone) {
+                if (pullableRigidBody != null) {
+                    pullableRigidBody.AddForce(transform.forward * effectiveForce, ForceMode.Force);
+                } else {
+                    tempToRemove.Add(pullableRigidBody);
+                }
+            }
+
+            // Remove the items outside the iterater
+            foreach (Rigidbody pullableRigidBody in tempToRemove) {
+                this.pullableObjectsInZone.Remove(pullableRigidBody);
+            }
+        }
+    }
+
+    private void HandlePullableObjects() {
+        List<Rigidbody> tempToRemove = new List<Rigidbody>();
+        foreach (Rigidbody pickableRigidBody in this.playerSuckPickUp.pickUpObjectsInZone) {
+            if (pickableRigidBody == null) {
+                tempToRemove.Add(pickableRigidBody);
+            } else if (!this.isHolding) {
+                //Debug.Log($"{pickableRigidBody.gameObject.name} picked up");
+                this.isHolding = true;
+                PickUp(pickableRigidBody);
+            } else {
+                AppliePullForce(pickableRigidBody);
+            }
+        }
+        foreach (Rigidbody pullableRigidBody in this.pullableObjectsInZone) {
+            if (pullableRigidBody == null) {
+                tempToRemove.Add(pullableRigidBody);
+            } else {
+                AppliePullForce(pullableRigidBody);
+            }
+        }
+
+        // Remove the items outside the iterater
+        foreach (Rigidbody pullableRigidBody in tempToRemove) {
+            playerSuckPickUp.pickUpObjectsInZone.Remove(pullableRigidBody);
+            pullableObjectsInZone.Remove(pullableRigidBody);
+        }
     }
 
     private ContactPointController DropPickUpItem() {
@@ -74,7 +106,8 @@ public class PlayerSuckAndBlow : MonoBehaviour {
         if (cp != null) {
             Transform Offset = cp.GetContactPoint();
             Vector3 offsetPosition = pickUpLocation.position - (Offset.position - pickableRigidBody.transform.position);
-            pickableRigidBody.transform.SetPositionAndRotation(offsetPosition, pickUpLocation.rotation * Quaternion.Inverse(Offset.parent.localRotation));
+            //pickableRigidBody.transform.SetPositionAndRotation(offsetPosition, pickUpLocation.rotation * Quaternion.Inverse(Offset.parent.localRotation));
+            pickableRigidBody.transform.position = offsetPosition;
         } else {
             // Fallback
             pickableRigidBody.transform.SetPositionAndRotation(pickUpLocation.position, transform.parent.parent.rotation);

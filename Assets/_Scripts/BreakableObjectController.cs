@@ -29,17 +29,13 @@ public class BreakableObjectController : MonoBehaviour {
         Shard.SetActive(true);
         //Destroy(this.DestroyOnBreak.gameObject);
         this.DestroyOnBreak.GetComponent<Rigidbody>().isKinematic = true;
+        Destroy(this.DestroyOnBreak.gameObject);
     }
-    private void OnCollisionEnter(Collision collision) {
-        Debug.Log(collision.collider.tag.ToString());
-        if (!collision.collider.CompareTag("Untagged")) {
-            Break();
-            Debug.Log("efweom");
-        }
 
-        if (collision.collider.tag.ToString() != "Untagged") {
+    private void OnTriggerEnter(Collider collider) {
+        if (!collider.CompareTag("Untagged")) {
             Break();
-            Debug.Log("fwefew");
         }
     }
+
 }
