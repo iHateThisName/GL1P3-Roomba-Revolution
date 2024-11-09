@@ -8,12 +8,14 @@ public class BreakableObjectController : MonoBehaviour {
 
     [SerializeField] private bool broken = false;
 
+    [Header("On Break")]
+    [SerializeField] private GameObject InstatiatedPrefab;
+    [SerializeField] private Vector3 InstatiatedOffsetPosition;
+    [SerializeField] private GameObject[] enableGameObjects;
+
     private void Awake() {
         Body.SetActive(true);
         Shard.SetActive(false);
-    }
-    void Start() {
-
     }
 
     // Update is called once per frame
@@ -26,10 +28,19 @@ public class BreakableObjectController : MonoBehaviour {
     private void Break() {
         Body.SetActive(false);
         Shard.transform.SetParent(null);
+        CreateOnBreak();
         Shard.SetActive(true);
-        //Destroy(this.DestroyOnBreak.gameObject);
-        this.DestroyOnBreak.GetComponent<Rigidbody>().isKinematic = true;
         Destroy(this.DestroyOnBreak.gameObject);
+    }
+
+    private void CreateOnBreak() {
+        if (this.InstatiatedPrefab != null) {
+            Instantiate(this.InstatiatedPrefab, transform.position + this.InstatiatedOffsetPosition, Quaternion.identity);
+        }
+
+        foreach (GameObject obj in enableGameObjects) {
+            obj.SetActive(true);
+        }
     }
 
     private void OnTriggerEnter(Collider collider) {
