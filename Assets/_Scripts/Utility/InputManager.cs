@@ -10,6 +10,14 @@ public class InputManager : MonoBehaviour {
     public Vector2 LookVector2 { get; private set; }
     public bool isSucking { get; private set; } = false;
     public bool isBlowing { get; private set; } = false;
+    public static InputManager Instance { get; private set; }
+    private void Awake() {
+        if (Instance == null) {
+            Instance = this;
+        } else {
+            Destroy(gameObject);
+        }
+    }
     void Start() {
 
         QualitySettings.vSyncCount = 0;
