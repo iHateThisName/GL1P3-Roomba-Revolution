@@ -7,7 +7,7 @@ public class PressurePlateController : MonoBehaviour
     [SerializeField] private Material whenNotActive; 
     [SerializeField] private GameObject activateMe;
     
-    private bool isActivated = false;
+    private bool isActivated = true;
 
     // Start is called once before the first frame update
     void Start()
@@ -42,7 +42,7 @@ public class PressurePlateController : MonoBehaviour
 
             if (activateMe != null)
             {
-                activateMe.SetActive(true);
+                activateMe.SetActive(false);
             }
             Debug.Log("Pressure plate activated.");
         }
@@ -58,7 +58,7 @@ public class PressurePlateController : MonoBehaviour
 
             if (activateMe != null)
             {
-                activateMe.SetActive(false);
+                activateMe.SetActive(true);
             }
             Debug.Log("Pressure plate deactivated.");
         }
