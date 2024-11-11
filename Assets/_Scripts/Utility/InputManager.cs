@@ -11,6 +11,9 @@ public class InputManager : MonoBehaviour {
     public bool isSucking { get; private set; } = false;
     public bool isBlowing { get; private set; } = false;
     void Start() {
+
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
         this.move = InputSystem.actions.FindAction("Move");
         this.move.performed += Move;
         this.move.canceled += Move;
