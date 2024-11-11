@@ -2,56 +2,65 @@ using UnityEngine;
 
 public class PressurePlateController : MonoBehaviour
 {
-    public Transform target;
-    public Transform normal;
-    public float moveSpeed = 0.5f;
+    [SerializeField] private string requiredTag = "SuckAndPickup";
+    [SerializeField] private Material whenActive;            
+    [SerializeField] private Material whenNotActive; 
+    [SerializeField] private GameObject activateMe;
+    
+    private bool isActivated = false;
 
-    private bool isMovingToTarget = false;
-    private bool isMovingBack = false;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Start is called once before the first frame update
     void Start()
     {
-
+        GetComponent<MeshRenderer>().material = whenNotActive;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
-        if (isMovingToTarget)
+        if (other.CompareTag(requiredTag))
         {
-            transform.position = Vector3.Lerp(transform.position, target.position, moveSpeed * Time.deltaTime);
-
-            if (Vector3.Distance(transform.position, target.position) < 0.1f)
-            {
-                transform.position = target.position;
-                isMovingToTarget = false;
-            }
-        }
-
-        if (isMovingBack)
-        {
-            transform.position = Vector3.Lerp(transform.position, normal.position, moveSpeed * Time.deltaTime);
-
-            if (Vector3.Distance(transform.position, normal.position) < 0.1f)
-            {
-                transform.position = normal.position;
-                isMovingBack = false;
-            }
+            ActivatePressurePlate();
         }
     }
 
-    void OnCollisionStay(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.CompareTag("SuckAndPickup"))
+        if (other.CompareTag(requiredTag))
         {
-            GetComponent<MeshRenderer>().material.color = Color.black;
+            DeactivatePressurePlate();
+        }
+    }
 
-            if (!isMovingToTarget && !isMovingBack)
+    // Activate the pressure plate
+    private void ActivatePressurePlate()
+    {
+        if (!isActivated)
+        {
+            isActivated = true;
+
+            GetComponent<MeshRenderer>().material = whenActive;
+
+            if (activateMe != null)
             {
-                isMovingToTarget = true;
+                activateMe.SetActive(true);
             }
+            Debug.Log("Pressure plate activated.");
+        }
+    }
+
+    private void DeactivatePressurePlate()
+    {
+        if (isActivated)
+        {
+            isActivated = false;
+
+            GetComponent<MeshRenderer>().material = whenNotActive;
+
+            if (activateMe != null)
+            {
+                activateMe.SetActive(false);
+            }
+            Debug.Log("Pressure plate deactivated.");
         }
     }
 }
