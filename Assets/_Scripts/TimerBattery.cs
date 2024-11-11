@@ -8,6 +8,8 @@ public class TimerBattery : MonoBehaviour
 
     public Slider m_slider;
     public float timer;
+    public float batteryTimerFactor = 1.0f;
+    private float batteryTimerFactorDefault;
 
     public Image m_FillImage;
 
@@ -18,6 +20,11 @@ public class TimerBattery : MonoBehaviour
 
     private float m_time;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private void Awake() // Sets the battery timer factor to default before the level starts
+    {
+        batteryTimerFactorDefault = batteryTimerFactor;
+    }
     void Start()
     {
         m_time = timer;
@@ -40,16 +47,21 @@ public class TimerBattery : MonoBehaviour
 
         if (m_time > 0)
         {
-            m_time -= Time.deltaTime;
+            m_time -= Time.deltaTime * batteryTimerFactor;
             m_slider.value = m_time / timer;
             if (m_slider.value <= 75)
             {
                 m_FillImage.color = Color.Lerp (m_noTime, m_fullTime, m_time / timer);
             }
+
         }
         else
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+    }
+    public void ResetBatteryFactor()
+    {
+        batteryTimerFactor = batteryTimerFactorDefault;
     }
 }
