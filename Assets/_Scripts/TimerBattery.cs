@@ -48,7 +48,7 @@ public class TimerBattery : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
