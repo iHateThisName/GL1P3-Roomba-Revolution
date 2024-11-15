@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPickUpPoint: {fileID: 0}
   eyePupil: {fileID: 3099388187785742185}
+  <itemCollider>k__BackingField: {fileID: 5427930645768201620}
   isLooking: 0
 --- !u!1 &1444286955786789396
 GameObject:
@@ -317,3 +318,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorController: {fileID: 0}
+  roomba: {fileID: 0}
+  bc: {fileID: 0}

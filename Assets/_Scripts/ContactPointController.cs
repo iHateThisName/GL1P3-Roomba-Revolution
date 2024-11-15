@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ContactPointController : MonoBehaviour
-{
+public class ContactPointController : MonoBehaviour {
     [SerializeField] private Transform playerPickUpPoint;
     [SerializeField] private Transform eyePupil;
+    [field: SerializeField] public Collider itemCollider { get; private set; }
     public bool isLooking = false;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         if (playerPickUpPoint == null) {
             playerPickUpPoint = GameObject.FindGameObjectWithTag("PlayerPickUpPoint").transform;
         }
@@ -17,11 +16,14 @@ public class ContactPointController : MonoBehaviour
         if (eyePupil == null) {
             this.eyePupil = GetContactPoint();
         }
+
+        if (itemCollider == null) {
+            this.itemCollider = gameObject.GetComponentInParent<Collider>();
+        }
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if (isLooking) {
             Vector3 directionToTarget = playerPickUpPoint.position - transform.position;
             transform.rotation = Quaternion.LookRotation(directionToTarget);

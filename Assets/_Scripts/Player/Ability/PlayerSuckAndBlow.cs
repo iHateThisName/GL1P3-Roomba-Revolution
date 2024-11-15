@@ -96,12 +96,14 @@ public class PlayerSuckAndBlow : MonoBehaviour {
         ContactPointController cp = childGameObject.GetComponentInChildren<ContactPointController>();
         childGameObject.transform.SetParent(null);
         childRb.isKinematic = false;
+        cp.itemCollider.enabled = true;
         return cp;
     }
 
     private void PickUp(Rigidbody pickableRigidBody) {
         ContactPointController cp = pickableRigidBody.gameObject.transform.GetComponentInChildren<ContactPointController>();
         pickableRigidBody.isKinematic = true;
+        cp.itemCollider.enabled = false;
 
         if (cp != null) {
             Transform Offset = cp.GetContactPoint();
