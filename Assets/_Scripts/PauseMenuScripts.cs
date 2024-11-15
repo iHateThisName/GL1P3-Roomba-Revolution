@@ -1,32 +1,41 @@
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenuScripts : MonoBehaviour
 {
     public GameObject pauseMenu;
-    public GameObject pauseBlur;
+
+    private bool isPaused = false;
+
+    public static PauseMenuScripts Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     public void UnPause()
     {
-        pauseMenu.SetActive(false);
-        pauseBlur.SetActive(false);
+        Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        Time.timeScale = 1f;
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            pauseMenu.SetActive(true);
-            pauseBlur.SetActive(true);
-            Time.timeScale = 0f;
-        }
+        Debug.Log("Unpausing");
+        isPaused = false;
+        pauseMenu.SetActive(false);
+        Debug.Log(isPaused);
     }
 
     public void MainMenu()
     {
+        Time.timeScale = 1f;
         GameManager.Instance.LoadScene(EnumScene.MainMenu);
     }
 
@@ -35,4 +44,21 @@ public class PauseMenuScripts : MonoBehaviour
         GetComponent<PlayerBGone>().QuitGame();
     }
 
+    public void Pause()
+    {
+        if (isPaused)
+        {
+            UnPause();
+            return;
+        }
+        if (!isPaused)
+        {
+            Debug.Log("Pausing");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            pauseMenu.SetActive(true);
+            isPaused = true;
+            Time.timeScale = 0f;
+        }
+    }
 }
