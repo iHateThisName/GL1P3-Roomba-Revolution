@@ -15,6 +15,7 @@ public class PauseMenuScripts : MonoBehaviour {
     }
     private void Start() {
         isPaused = false;
+        Time.timeScale = 1f;
     }
     public void UnPause() {
         Time.timeScale = 1f;
@@ -49,6 +50,7 @@ public class PauseMenuScripts : MonoBehaviour {
     public void OnRestart() {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
