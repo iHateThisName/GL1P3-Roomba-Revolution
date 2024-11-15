@@ -1024,7 +1024,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 292096516281481923}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DoorWallWithChains
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4,13 +4,13 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - Tag
   - PlayerPickUpPoint
   - SuckAndPickup
   - Suckable
   - Door
   - Elevator
   - Trap
-  - Breakable
   layers:
   - Default
   - TransparentFX

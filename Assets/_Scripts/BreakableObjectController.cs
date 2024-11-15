@@ -12,6 +12,8 @@ public class BreakableObjectController : MonoBehaviour {
     [SerializeField] private GameObject InstatiatedPrefab;
     [SerializeField] private Vector3 InstatiatedOffsetPosition;
     [SerializeField] private GameObject[] enableGameObjects;
+    [SerializeField] private GameObject[] enableAndMoveGameObjects;
+    [SerializeField] private Vector3 enableAndMoveOffsetPosition;
 
     private void Awake() {
         Body.SetActive(true);
@@ -39,6 +41,11 @@ public class BreakableObjectController : MonoBehaviour {
         }
 
         foreach (GameObject obj in enableGameObjects) {
+            obj.SetActive(true);
+        }
+
+        foreach (GameObject obj in enableAndMoveGameObjects) {
+            obj.transform.position = (transform.position + enableAndMoveOffsetPosition);
             obj.SetActive(true);
         }
     }
