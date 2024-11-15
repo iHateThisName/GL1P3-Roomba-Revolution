@@ -1,35 +1,28 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
-public class InputManager : MonoBehaviour
-{
+public class InputManager : MonoBehaviour {
     private InputAction move;
     private InputAction suck;
     private InputAction blow;
     private InputAction look;
     private InputAction pause;
 
-
     public bool isPaused { get; private set; } = false;
     public Vector2 MoveVector2 { get; private set; }
     public Vector2 LookVector2 { get; private set; }
     public bool isSucking { get; private set; } = false;
     public bool isBlowing { get; private set; } = false;
+
     public static InputManager Instance { get; private set; }
-    private void Awake()
-    {
-        if (Instance == null)
-        {
+    private void Awake() {
+        if (Instance == null) {
             Instance = this;
-        }
-        else
-        {
+        } else {
             Destroy(gameObject);
         }
     }
-    void Start()
-    {
+    void Start() {
 
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
@@ -51,9 +44,9 @@ public class InputManager : MonoBehaviour
 
         this.pause = InputSystem.actions.FindAction("Pause");
         this.pause.performed += Pause;
-        //this.pause.canceled += Pause;
+        this.pause.canceled += Pause;
 
-        
+
     }
     private void Move(InputAction.CallbackContext context) => this.MoveVector2 = context.ReadValue<Vector2>();
     private void Look(InputAction.CallbackContext context) => this.LookVector2 = context.ReadValue<Vector2>();
@@ -61,10 +54,8 @@ public class InputManager : MonoBehaviour
     private void Blow(InputAction.CallbackContext context) => this.isBlowing = !isBlowing;
 
     // Gabriel Part sorry
-    private void Pause(InputAction.CallbackContext context)
-    {
+    private void Pause(InputAction.CallbackContext context) {
         isPaused = !isPaused;
-        PauseMenuScripts.Instance.Pause();
-
+        if (isPaused) PauseMenuScripts.Instance.Pause();
     }
 }

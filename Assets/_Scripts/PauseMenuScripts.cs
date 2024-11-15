@@ -1,59 +1,44 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class PauseMenuScripts : MonoBehaviour
-{
+public class PauseMenuScripts : MonoBehaviour {
     public GameObject pauseMenu;
-
     private bool isPaused = false;
-
     public static PauseMenuScripts Instance { get; private set; }
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
+    private void Awake() {
+        if (Instance == null) {
             Instance = this;
-        }
-        else
-        {
+        } else {
             Destroy(gameObject);
         }
     }
-    public void UnPause()
-    {
+    private void Start() {
+        isPaused = false;
+    }
+    public void UnPause() {
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        Debug.Log("Unpausing");
         isPaused = false;
         pauseMenu.SetActive(false);
-        Debug.Log(isPaused);
     }
 
-    public void MainMenu()
-    {
+    public void MainMenu() {
         Time.timeScale = 1f;
         GameManager.Instance.LoadScene(EnumScene.MainMenu);
     }
 
-    public void QuitIngame()
-    {
+    public void QuitIngame() {
         GetComponent<PlayerBGone>().QuitGame();
     }
 
-    public void Pause()
-    {
-        if (isPaused)
-        {
+    public void Pause() {
+        if (isPaused) {
             UnPause();
             return;
         }
-        if (!isPaused)
-        {
-            Debug.Log("Pausing");
+        if (!isPaused) {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             pauseMenu.SetActive(true);
@@ -61,4 +46,10 @@ public class PauseMenuScripts : MonoBehaviour
             Time.timeScale = 0f;
         }
     }
+    public void OnRestart() {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
 }
