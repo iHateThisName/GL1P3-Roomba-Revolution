@@ -7,12 +7,10 @@ public class KeyController : MonoBehaviour {
     [SerializeField] private DoorController doorController;
     [SerializeField] private GameObject roomba;
     [SerializeField] private BoxCollider bc;
-    //private Collider keyCollider;
     private Rigidbody rb; 
 
     void Start() {
-        //keyCollider = GetComponent<Collider>();
-        //rb.GetComponent<Rigidbody>();
+       
     }
 
     // Update is called once per frame
@@ -26,12 +24,5 @@ public class KeyController : MonoBehaviour {
             doorController.Unlock();
             Destroy(gameObject);
         }
-
-        if (collision.gameObject.CompareTag("Player")) {
-            rb.isKinematic = true;
-            bc.enabled = false;
-        }
     }
-
-
 }

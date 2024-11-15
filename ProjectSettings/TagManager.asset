@@ -11,6 +11,7 @@ TagManager:
   - Door
   - Elevator
   - Trap
+  - Push
   layers:
   - Default
   - TransparentFX
