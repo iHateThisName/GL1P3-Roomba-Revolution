@@ -19718,7 +19718,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 513334784}
   serializedVersion: 4
-  m_Mass: 3.5
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -29372,34 +29372,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2423517284688181248, guid: 6ae95690c5fa33b46a58f6d2eb4cb7b9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.4009079
-      objectReference: {fileID: 0}
-    - target: {fileID: 2423517284688181248, guid: 6ae95690c5fa33b46a58f6d2eb4cb7b9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.75901
-      objectReference: {fileID: 0}
-    - target: {fileID: 2423517284688181248, guid: 6ae95690c5fa33b46a58f6d2eb4cb7b9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -6.0991693
-      objectReference: {fileID: 0}
-    - target: {fileID: 2423517284688181248, guid: 6ae95690c5fa33b46a58f6d2eb4cb7b9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.92567575
-      objectReference: {fileID: 0}
-    - target: {fileID: 2423517284688181248, guid: 6ae95690c5fa33b46a58f6d2eb4cb7b9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.36115777
-      objectReference: {fileID: 0}
-    - target: {fileID: 2423517284688181248, guid: 6ae95690c5fa33b46a58f6d2eb4cb7b9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.10494326
-      objectReference: {fileID: 0}
-    - target: {fileID: 2423517284688181248, guid: 6ae95690c5fa33b46a58f6d2eb4cb7b9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.04094421
-      objectReference: {fileID: 0}
     - target: {fileID: 5613027135946053243, guid: 6ae95690c5fa33b46a58f6d2eb4cb7b9, type: 3}
       propertyPath: m_Name
       value: Player.v3
@@ -30237,8 +30209,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.1577722, y: 0.19565213, z: 0.3989588}
-  m_Center: {x: 0, y: -0.074194565, z: 0.000000014901161}
+  m_Size: {x: 1.0251234, y: 0.19565213, z: 0.32508203}
+  m_Center: {x: -0.006298373, y: -0.074194565, z: 0.0016289384}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
