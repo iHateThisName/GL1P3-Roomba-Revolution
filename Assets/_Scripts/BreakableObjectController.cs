@@ -6,6 +6,7 @@ public class BreakableObjectController : MonoBehaviour {
     [SerializeField] private GameObject Shard;
     [SerializeField] private GameObject DestroyOnBreak;
 
+
     [SerializeField] private bool broken = false;
 
     [Header("On Break")]
