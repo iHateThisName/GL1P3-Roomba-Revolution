@@ -1,13 +1,11 @@
 using UnityEngine;
 
+
 public class BreakableObjectController : MonoBehaviour {
 
     [SerializeField] private GameObject Body;
-    [SerializeField] private GameObject Shard;
+    [SerializeField] private GameObject Pieces;
     [SerializeField] private GameObject DestroyOnBreak;
-
-
-    [SerializeField] private bool broken = false;
 
     [Header("On Break")]
     [SerializeField] private GameObject InstatiatedPrefab;
@@ -18,21 +16,14 @@ public class BreakableObjectController : MonoBehaviour {
 
     private void Awake() {
         Body.SetActive(true);
-        Shard.SetActive(false);
+        Pieces.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update() {
-        if (broken) {
-            Break();
-        }
-    }
-
-    private void Break() {
+    public void Break() {
         Body.SetActive(false);
-        Shard.transform.SetParent(null);
+        Pieces.transform.SetParent(null);
         CreateOnBreak();
-        Shard.SetActive(true);
+        Pieces.SetActive(true);
         Destroy(this.DestroyOnBreak.gameObject);
     }
 
@@ -50,11 +41,4 @@ public class BreakableObjectController : MonoBehaviour {
             obj.SetActive(true);
         }
     }
-
-    private void OnTriggerEnter(Collider collider) {
-        if (!collider.CompareTag("Untagged")) {
-            Break();
-        }
-    }
-
 }

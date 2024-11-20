@@ -671,9 +671,10 @@ GameObject:
   - component: {fileID: 7994832992328239724}
   - component: {fileID: 5679786956773308656}
   - component: {fileID: 182438283114386353}
-  - component: {fileID: 8767298259885710969}
   - component: {fileID: 8376489267883645964}
   - component: {fileID: 7485366533069278843}
+  - component: {fileID: 8767298259885710969}
+  - component: {fileID: 5676903234899081537}
   m_Layer: 0
   m_Name: VaseBody
   m_TagString: Untagged
@@ -750,27 +751,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8767298259885710969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6166316441052718515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66446ff7044363242a13baf527e04fcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Body: {fileID: 6166316441052718515}
-  Shard: {fileID: 6457358658274140747}
-  DestroyOnBreak: {fileID: 2465010530703878618}
-  broken: 0
-  InstatiatedPrefab: {fileID: 0}
-  InstatiatedOffsetPosition: {x: 0, y: 0, z: 0}
-  enableGameObjects: []
-  enableAndMoveGameObjects: []
-  enableAndMoveOffsetPosition: {x: 0, y: 0, z: 0}
 --- !u!64 &8376489267883645964
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -814,6 +794,42 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.038866654, y: 0.03390807, z: 0.034962904}
   m_Center: {x: 0, y: 3.8527558e-17, z: 0.02212975}
+--- !u!114 &8767298259885710969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6166316441052718515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66446ff7044363242a13baf527e04fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Body: {fileID: 6166316441052718515}
+  Pieces: {fileID: 6457358658274140747}
+  DestroyOnBreak: {fileID: 2465010530703878618}
+  InstatiatedPrefab: {fileID: 0}
+  InstatiatedOffsetPosition: {x: 0, y: 0, z: 0}
+  enableGameObjects: []
+  enableAndMoveGameObjects: []
+  enableAndMoveOffsetPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &5676903234899081537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6166316441052718515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc70323596dc1445a3032a7cf7546cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 8767298259885710969}
+  Tags: 32766
+  TriggerCollider: 1
+  CollisionCollider: 0
 --- !u!1 &6457358658274140747
 GameObject:
   m_ObjectHideFlags: 0
