@@ -3,6 +3,7 @@ using UnityEngine;
 public class SoundEffectController : MonoBehaviour
 {
     [SerializeField] private InputManager inputManager;
+    [SerializeField] private PlayerSuckAndBlow PlayerSuckAndBlow;
     private bool haveSucked = false;
     private bool haveBlown = false;
 
@@ -51,6 +52,5 @@ public class SoundEffectController : MonoBehaviour
             blowEnd.Play();
             haveBlown = false;
         }
-
     }
 }
