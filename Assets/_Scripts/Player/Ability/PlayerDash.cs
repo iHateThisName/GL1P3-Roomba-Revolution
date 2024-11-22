@@ -13,6 +13,10 @@ public class PlayerDash : MonoBehaviour {
     [SerializeField] private Rigidbody playerRigidbody;
     [SerializeField] private PlayerMovement playerMovement;
 
+    [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private float bounceBackForce = 10f;
+    [SerializeField] private float elapsedTimeBounce = 0.5f;
+
     private bool canDash = true;
 
     void Update() {
@@ -28,11 +32,16 @@ public class PlayerDash : MonoBehaviour {
         this.playerMovement.enabled = false;
         Vector3 dashDirection = (dashDirectionTransform.position - transform.position).normalized;
 
-        // Applying dash force
-        this.playerRigidbody.AddForce(dashDirection * dashForce, ForceMode.VelocityChange);
+        float elapsedTime = 0f;
+        while (elapsedTime < this.dashDuration) {
+            float forceThisFrame = (this.dashForce / this.dashDuration) * Time.deltaTime;
 
-        // Dash duration
-        yield return new WaitForSecondsRealtime(this.dashDuration);
+            // Apply incremental force
+            this.playerRigidbody.AddForce(dashDirection * forceThisFrame, ForceMode.Force);
+
+            elapsedTime += Time.deltaTime;
+            yield return null; // Wait for the next frame
+        }
 
         // Dash Ended
         this.playerMovement.enabled = true;
@@ -40,5 +49,30 @@ public class PlayerDash : MonoBehaviour {
         // Dash Cooldown
         yield return new WaitForSecondsRealtime(dashCooldown);
         canDash = true;
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        if (!canDash && (wallLayer.value & (1 << collision.gameObject.layer)) > 0) {
+            StopCoroutine(Dash());
+            StartCoroutine(SmoothBounceForce());
+        }
+    }
+
+    private IEnumerator SmoothBounceForce() {
+        Vector3 dashDirection = -(dashDirectionTransform.position - transform.position).normalized;
+        float elapsedTime = 0f;
+        this.playerRigidbody.linearVelocity = Vector3.zero;
+        this.playerMovement.enabled = true;
+
+        while (elapsedTime < this.elapsedTimeBounce) {
+            float forceThisFrame = (this.bounceBackForce / this.elapsedTimeBounce) * Time.deltaTime;
+
+            // Apply incremental force
+            this.playerRigidbody.AddForce(dashDirection * forceThisFrame, ForceMode.Force);
+
+            elapsedTime += Time.deltaTime;
+            yield return null; // Wait for the next frame
+        }
+        this.canDash = true;
     }
 }
