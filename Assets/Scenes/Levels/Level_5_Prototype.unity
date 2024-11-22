@@ -220,6 +220,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OpenSesam
       objectReference: {fileID: 0}
+    - target: {fileID: 6567076581393517592, guid: c3475027771a54f14b12cf6cf328e038, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 830658863}
     - target: {fileID: 8858646365229824869, guid: c3475027771a54f14b12cf6cf328e038, type: 3}
       propertyPath: m_LocalPosition.x
       value: -54.88
@@ -17473,6 +17477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Elevator.v2
       objectReference: {fileID: 0}
+    - target: {fileID: 5802848140558719918, guid: 64022b063f5da4635ba7bace87a8ec5e, type: 3}
+      propertyPath: scene
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8838168026914813515, guid: 64022b063f5da4635ba7bace87a8ec5e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.88
@@ -17518,6 +17526,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64022b063f5da4635ba7bace87a8ec5e, type: 3}
+--- !u!114 &830658863 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8670366728549714808, guid: 64022b063f5da4635ba7bace87a8ec5e, type: 3}
+  m_PrefabInstance: {fileID: 830658862}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef98435313acbb4e9bec20365290365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &854697293
 GameObject:
   m_ObjectHideFlags: 0

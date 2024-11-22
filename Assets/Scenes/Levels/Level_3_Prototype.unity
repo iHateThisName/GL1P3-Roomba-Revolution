@@ -207,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 27730133}
   serializedVersion: 2
   m_LocalRotation: {x: -0.10141022, y: 0.5524071, z: 0.06793653, w: 0.8245891}
-  m_LocalPosition: {x: -66.25579, y: 0.77895105, z: -10.989312}
+  m_LocalPosition: {x: -66.25579, y: 0.7789509, z: -10.989311}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -492,7 +492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5802848140558719918, guid: 64022b063f5da4635ba7bace87a8ec5e, type: 3}
       propertyPath: scene
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8838168026914813515, guid: 64022b063f5da4635ba7bace87a8ec5e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3323,6 +3323,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OpenSesam
       objectReference: {fileID: 0}
+    - target: {fileID: 6567076581393517592, guid: c3475027771a54f14b12cf6cf328e038, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1983979588}
     - target: {fileID: 8858646365229824869, guid: c3475027771a54f14b12cf6cf328e038, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.68
@@ -7553,6 +7557,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8efa34c8d488daa4791cb6cbdd9ec923, type: 3}
+--- !u!114 &1983979588 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8670366728549714808, guid: 64022b063f5da4635ba7bace87a8ec5e, type: 3}
+  m_PrefabInstance: {fileID: 106295896}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef98435313acbb4e9bec20365290365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1988928322
 PrefabInstance:
   m_ObjectHideFlags: 0
