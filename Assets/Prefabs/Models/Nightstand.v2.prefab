@@ -74,7 +74,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 575490340154455624}
   serializedVersion: 4
-  m_Mass: 30
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -245,6 +245,7 @@ GameObject:
   - component: {fileID: 5365747026695759282}
   - component: {fileID: 4837804835346443620}
   - component: {fileID: 5928183967117639335}
+  - component: {fileID: 3676666036729126855}
   m_Layer: 0
   m_Name: NightStand
   m_TagString: Untagged
@@ -405,3 +406,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.021048723, y: 0.001559507, z: 0.019754868}
   m_Center: {x: 0, y: -0.010954566, z: -0.0001225679}
+--- !u!65 &3676666036729126855
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730330589689849240}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0022812104, y: 0.024116065, z: 0.019445296}
+  m_Center: {x: 0.009383757, y: 3.689321e-12, z: 0.00023277906}
