@@ -38,7 +38,6 @@ public class SoundEffectController : MonoBehaviour
     {
         bool isSucking = this.inputManager.isSucking;
         bool isBlowing = this.inputManager.isBlowing;
-        bool hasPickup = this.PlayerSuckAndBlow.HasPickUp();
 
         if (isSucking && !this.suckStart.isPlaying && !haveSucked)
         {

@@ -9,6 +9,7 @@ public class TimerBattery : MonoBehaviour
     public float timer;
     public float batteryTimerFactor = 1.0f;
     private float batteryTimerFactorDefault;
+    
 
     public Image m_FillImage;
 
@@ -62,5 +63,16 @@ public class TimerBattery : MonoBehaviour
     public void ResetBatteryFactor()
     {
         batteryTimerFactor = batteryTimerFactorDefault;
+    }
+    public void AddTime(float time)
+    {
+        if (m_time + time > timer)
+        {
+            m_time = timer;
+        }
+        else
+        {
+        m_time += time;
+        }
     }
 }
