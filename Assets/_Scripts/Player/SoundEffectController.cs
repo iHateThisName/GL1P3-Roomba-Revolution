@@ -4,6 +4,7 @@ public class SoundEffectController : MonoBehaviour
 {
     [SerializeField] private InputManager inputManager;
     [SerializeField] private PlayerSuckAndBlow PlayerSuckAndBlow;
+    [SerializeField] private PlayerSuckPickUp PlayerSuckPickUp;
     private bool haveSucked = false;
     private bool haveBlown = false;
 
@@ -23,6 +24,7 @@ public class SoundEffectController : MonoBehaviour
     {
         bool isSucking = this.inputManager.isSucking;
         bool isBlowing = this.inputManager.isBlowing;
+        bool hasPickup = this.PlayerSuckAndBlow.HasPickUp();
 
         if (isSucking && !this.suckStart.isPlaying && !haveSucked)
         {
@@ -51,6 +53,10 @@ public class SoundEffectController : MonoBehaviour
             blowContinue.Stop();
             blowEnd.Play();
             haveBlown = false;
+        }
+        if (hasPickup)
+        {
+            suckAttach.Play();
         }
     }
 }
