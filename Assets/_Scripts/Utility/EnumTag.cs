@@ -17,4 +17,5 @@ public enum EnumTag {
     Elevator = 1 << 12,
     Trap = 1 << 13,
     Push = 1 << 14,
+    DashBreakable = 1 << 15,
 }

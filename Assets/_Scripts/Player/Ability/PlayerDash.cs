@@ -26,6 +26,19 @@ public class PlayerDash : MonoBehaviour {
         }
 
     }
+    private void OnCollisionEnter(Collision collision) {
+        if (!canDash && (wallLayer.value & (1 << collision.gameObject.layer)) > 0) {
+            StopCoroutine(Dash());
+            StartCoroutine(SmoothBounceForce());
+        } else if (!canDash && collision.collider.CompareTag(EnumTag.DashBreakable.ToString())) {
+            StopCoroutine(Dash());
+            collision.collider.GetComponent<TriggerBreak>().BreakTrigger();
+            StartCoroutine(SmoothBounceForce());
+            Debug.Log("DashBreak");
+        }
+
+        Debug.Log("Collison " + collision.collider.tag);
+    }
 
     private IEnumerator Dash() {
         this.canDash = false;
@@ -49,13 +62,6 @@ public class PlayerDash : MonoBehaviour {
         // Dash Cooldown
         yield return new WaitForSecondsRealtime(dashCooldown);
         canDash = true;
-    }
-
-    private void OnCollisionEnter(Collision collision) {
-        if (!canDash && (wallLayer.value & (1 << collision.gameObject.layer)) > 0) {
-            StopCoroutine(Dash());
-            StartCoroutine(SmoothBounceForce());
-        }
     }
 
     private IEnumerator SmoothBounceForce() {

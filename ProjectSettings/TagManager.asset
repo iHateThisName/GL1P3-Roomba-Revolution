@@ -12,6 +12,7 @@ TagManager:
   - Elevator
   - Trap
   - Push
+  - DashBreakable
   layers:
   - Default
   - TransparentFX

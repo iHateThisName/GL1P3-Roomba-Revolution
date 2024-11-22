@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TriggerBreak : MonoBehaviour {
@@ -23,6 +24,9 @@ public class TriggerBreak : MonoBehaviour {
         if (SpecificGameObjectName != string.Empty) {
             if (collider.gameObject.name == SpecificGameObjectName) {
                 BreakTrigger();
+                //} else if (collider.CompareTag("Player")) {
+                //    var t = collider.GetComponent<PlayerDash>();
+                //    if (t != null && t.isDa)
             }
         } else if (IsTagInEnum(collider.tag, this.Tags)) {
             BreakTrigger();
@@ -49,7 +53,7 @@ public class TriggerBreak : MonoBehaviour {
         return false;
     }
 
-    private void BreakTrigger() {
+    public void BreakTrigger() {
         if (this.BrokenPiece != null) {
             controller.Break(gameObject, this.BrokenPiece);
         } else {
