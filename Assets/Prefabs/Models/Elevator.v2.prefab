@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8838168026914813515}
+  - component: {fileID: 2025551499559369592}
+  - component: {fileID: 8670366728549714808}
   m_Layer: 0
   m_Name: Elevator.v2
   m_TagString: Untagged
@@ -25,13 +27,49 @@ Transform:
   m_GameObject: {fileID: 73410400388891195}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.76, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3480643331068643399}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2025551499559369592
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73410400388891195}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 13fffa4b776364f42beb5cc249efd7cb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8670366728549714808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73410400388891195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef98435313acbb4e9bec20365290365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2025551499559369592}
+  playOpen: 0
 --- !u!1 &2134685425238223624
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +167,7 @@ GameObject:
   - component: {fileID: 7504221426641016665}
   - component: {fileID: 4328156404012434743}
   - component: {fileID: 3124928464605763852}
+  - component: {fileID: 146212759491671222}
   m_Layer: 0
   m_Name: ElevatorDoor2
   m_TagString: Untagged
@@ -145,7 +184,7 @@ Transform:
   m_GameObject: {fileID: 3651722709578474166}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.6, y: -0, z: -2.5}
+  m_LocalPosition: {x: 0.21, y: -0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -204,6 +243,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &146212759491671222
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651722709578474166}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.00286479, y: 0.031714562, z: 0.07814716}
+  m_Center: {x: -0.03928936, y: 0.01586259, z: 0.00042111232}
 --- !u!1 &5343999814281219808
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,6 +310,7 @@ GameObject:
   - component: {fileID: 374495447452241484}
   - component: {fileID: 815818146053783846}
   - component: {fileID: 1923888495262444880}
+  - component: {fileID: 3824796547117374270}
   m_Layer: 0
   m_Name: ElevatorDoor1
   m_TagString: Untagged
@@ -266,7 +327,7 @@ Transform:
   m_GameObject: {fileID: 8992734441218898261}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.598997, y: 0, z: 2.5}
+  m_LocalPosition: {x: 0.21, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -325,6 +386,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3824796547117374270
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8992734441218898261}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.00286479, y: 0.03171456, z: 0.07814716}
+  m_Center: {x: -0.03928936, y: -0.01585197, z: 0.00042111232}
 --- !u!1001 &5999237580455831026
 PrefabInstance:
   m_ObjectHideFlags: 0

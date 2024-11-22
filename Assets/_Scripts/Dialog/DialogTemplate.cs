@@ -14,6 +14,19 @@ public class DialogTemplate : MonoBehaviour
 
     //The speed at which letters appear
     private float typingSpeed = 0.04f;
+
+    public static DialogTemplate instance {  get; private set; }
+    private void Awake()
+    {
+        if( instance == null)
+        {
+            instance = this;
+        } else
+        {
+            Destroy(gameObject);
+        }
+    }
+    /*
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -23,6 +36,17 @@ public class DialogTemplate : MonoBehaviour
             StartCoroutine(TypeText(currentDialog));
 
         }
+    }
+    */
+    public void DialougeStart()
+    {
+        StartCoroutine(TypeText(dialogText));
+    }
+    public void DialougeLeft()
+    {
+        StopAllCoroutines();
+        currentDialogElement--;
+        Debug.LogWarning("Trigger Zone Left");
     }
     IEnumerator TypeText(string[] currentDialog)
     {

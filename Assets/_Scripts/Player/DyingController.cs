@@ -29,12 +29,4 @@ public class DyingController : MonoBehaviour
     {
         timerBattery = GameObject.FindAnyObjectByType<TimerBattery>();
     }
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
