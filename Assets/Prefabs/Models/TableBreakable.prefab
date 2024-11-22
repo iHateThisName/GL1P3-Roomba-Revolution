@@ -1091,7 +1091,8 @@ MonoBehaviour:
   DestroyOnBreak: {fileID: 3574688464023958506}
   InstatiatedPrefab: {fileID: 0}
   InstatiatedOffsetPosition: {x: 0, y: 0, z: 0}
-  EnableGameObjects: []
+  EnableGameObjects:
+  - {fileID: 8669212618672695674}
   EnableAndMoveGameObjects: []
   enableAndMoveOffsetPosition: {x: 0, y: 0, z: 0}
   MaxBreakCount: 0
