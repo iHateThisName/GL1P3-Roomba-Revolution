@@ -7,11 +7,7 @@ public class ElevatorAnimator : MonoBehaviour
     public static ElevatorAnimator Instance { get; private set; }
 
 
-    private void Update()
-    {
-        if (playOpen) PlayAnimation();
-        else noitaminAyalP();
-    }
+   
 
     public void PlayAnimation()
     {
@@ -22,4 +18,6 @@ public class ElevatorAnimator : MonoBehaviour
     {
         animator.SetBool("open", false);
     }
+
+    
 }
