@@ -406,7 +406,8 @@ GameObject:
   - component: {fileID: 5799345099561311432}
   - component: {fileID: 1540636347790841643}
   - component: {fileID: 8475113703774044709}
-  - component: {fileID: 3315776335210943078}
+  - component: {fileID: 5770299677851793165}
+  - component: {fileID: 743898191167611259}
   m_Layer: 0
   m_Name: NightStandD
   m_TagString: Suckable
@@ -510,8 +511,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &3315776335210943078
-MeshCollider:
+--- !u!114 &5770299677851793165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6169882789553799227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49140a0820879473490a76f21ae6fab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &743898191167611259
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -528,10 +541,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8884586129647908790, guid: 009c87f65b0aa43fa9227a591c4d5e43, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.017985173, y: 0.01991005, z: 0.007528836}
+  m_Center: {x: -0.0005110266, y: -0.00017850936, z: -0.005374177}
 --- !u!1 &8760627678100925574
 GameObject:
   m_ObjectHideFlags: 0
