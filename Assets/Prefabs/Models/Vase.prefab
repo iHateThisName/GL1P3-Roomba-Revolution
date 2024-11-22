@@ -807,13 +807,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Body: {fileID: 6166316441052718515}
-  Pieces: {fileID: 6457358658274140747}
+  Pieces:
+  - {fileID: 6457358658274140747}
   DestroyOnBreak: {fileID: 2465010530703878618}
   InstatiatedPrefab: {fileID: 0}
   InstatiatedOffsetPosition: {x: 0, y: 0, z: 0}
-  enableGameObjects: []
-  enableAndMoveGameObjects: []
+  EnableGameObjects: []
+  EnableAndMoveGameObjects: []
   enableAndMoveOffsetPosition: {x: 0, y: 0, z: 0}
+  MaxBreakCount: 0
 --- !u!114 &5676903234899081537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -830,6 +832,8 @@ MonoBehaviour:
   Tags: 32766
   TriggerCollider: 1
   CollisionCollider: 0
+  SpecificGameObjectName: 
+  BrokenPiece: {fileID: 0}
 --- !u!1 &6457358658274140747
 GameObject:
   m_ObjectHideFlags: 0

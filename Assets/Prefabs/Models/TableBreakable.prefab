@@ -287,7 +287,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &157147752193296268
 Transform:
   m_ObjectHideFlags: 0
@@ -863,6 +863,8 @@ GameObject:
   - component: {fileID: 8705306003743621516}
   - component: {fileID: 445823411127748456}
   - component: {fileID: 4892058668328895998}
+  - component: {fileID: 6647137962471536252}
+  - component: {fileID: 2155869482200296447}
   m_Layer: 0
   m_Name: TableL1
   m_TagString: Untagged
@@ -959,6 +961,45 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.005, y: 0.004999999, z: 0.03999999}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6647137962471536252
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779726057838541980}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.005, y: 0.004999999, z: 0.03999999}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2155869482200296447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779726057838541980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc70323596dc1445a3032a7cf7546cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 3501852427367779107}
+  Tags: 32766
+  TriggerCollider: 1
+  CollisionCollider: 0
+  SpecificGameObjectName: 
+  BrokenPiece: {fileID: 1967144559186968981}
 --- !u!1 &1967144559186968981
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,7 +1015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4650309058052567645
 Transform:
   m_ObjectHideFlags: 0
@@ -1042,14 +1083,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Body: {fileID: 3574688464023958506}
-  Pieces: {fileID: 3200162232839344851}
+  Pieces:
+  - {fileID: 1967144559186968981}
+  - {fileID: 8027937006659483029}
+  - {fileID: 434726969447214031}
+  - {fileID: 8730361895117353579}
   DestroyOnBreak: {fileID: 3574688464023958506}
   InstatiatedPrefab: {fileID: 0}
   InstatiatedOffsetPosition: {x: 0, y: 0, z: 0}
-  enableGameObjects:
-  - {fileID: 8669212618672695674}
-  enableAndMoveGameObjects: []
+  EnableGameObjects: []
+  EnableAndMoveGameObjects: []
   enableAndMoveOffsetPosition: {x: 0, y: 0, z: 0}
+  MaxBreakCount: 0
 --- !u!1 &3200162232839344851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3966859001694056803
 Transform:
   m_ObjectHideFlags: 0
@@ -1467,6 +1512,8 @@ GameObject:
   - component: {fileID: 7956506407974026538}
   - component: {fileID: 8437809866401126693}
   - component: {fileID: 7172552344517250401}
+  - component: {fileID: 6896313388064438280}
+  - component: {fileID: 3636202712325337490}
   m_Layer: 0
   m_Name: TableL3
   m_TagString: Untagged
@@ -1563,6 +1610,45 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.005, y: 0.004999999, z: 0.03999999}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6896313388064438280
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4250364391696184528}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.005, y: 0.004999999, z: 0.03999999}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3636202712325337490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4250364391696184528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc70323596dc1445a3032a7cf7546cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 3501852427367779107}
+  Tags: 32766
+  TriggerCollider: 1
+  CollisionCollider: 0
+  SpecificGameObjectName: 
+  BrokenPiece: {fileID: 434726969447214031}
 --- !u!1 &4593673099937411269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,6 +1933,8 @@ GameObject:
   - component: {fileID: 6450809451461795355}
   - component: {fileID: 8828635661284738514}
   - component: {fileID: 1510967948555508906}
+  - component: {fileID: 4233491976005864635}
+  - component: {fileID: 695629877404596509}
   m_Layer: 0
   m_Name: TableL2
   m_TagString: Untagged
@@ -1943,6 +2031,45 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.005, y: 0.004999999, z: 0.03999999}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &4233491976005864635
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4663488680159538199}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.005, y: 0.004999999, z: 0.03999999}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &695629877404596509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4663488680159538199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc70323596dc1445a3032a7cf7546cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 3501852427367779107}
+  Tags: 32766
+  TriggerCollider: 1
+  CollisionCollider: 0
+  SpecificGameObjectName: 
+  BrokenPiece: {fileID: 8027937006659483029}
 --- !u!1 &4888615330633666440
 GameObject:
   m_ObjectHideFlags: 0
@@ -2635,6 +2762,8 @@ GameObject:
   - component: {fileID: 2175139527660823706}
   - component: {fileID: 8970877339830868122}
   - component: {fileID: 6322762007523828570}
+  - component: {fileID: 9062063485025190848}
+  - component: {fileID: 6100211628376921044}
   m_Layer: 0
   m_Name: TableL4
   m_TagString: Untagged
@@ -2731,6 +2860,45 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.005, y: 0.004999999, z: 0.03999999}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &9062063485025190848
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6690680739109990987}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.005, y: 0.004999999, z: 0.03999999}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6100211628376921044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6690680739109990987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc70323596dc1445a3032a7cf7546cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 3501852427367779107}
+  Tags: 32766
+  TriggerCollider: 1
+  CollisionCollider: 0
+  SpecificGameObjectName: 
+  BrokenPiece: {fileID: 8730361895117353579}
 --- !u!1 &7625857354341350464
 GameObject:
   m_ObjectHideFlags: 0
@@ -3018,7 +3186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3448494150846699218
 Transform:
   m_ObjectHideFlags: 0
@@ -3433,7 +3601,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5303747136804760174
 Transform:
   m_ObjectHideFlags: 0

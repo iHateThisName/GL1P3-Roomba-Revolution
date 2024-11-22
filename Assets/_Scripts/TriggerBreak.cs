@@ -9,15 +9,23 @@ public class TriggerBreak : MonoBehaviour {
     [SerializeField] bool CollisionCollider = true;
     [SerializeField] string SpecificGameObjectName = string.Empty;
 
+    [Header("Break")]
+    [SerializeField] private GameObject BrokenPiece;
+
+    private void Start() {
+        if (this.BrokenPiece != null) {
+            this.controller.MaxBreakCount++;
+        }
+    }
 
     private void OnTriggerEnter(Collider collider) {
         if (!TriggerCollider) return;
         if (SpecificGameObjectName != string.Empty) {
             if (collider.gameObject.name == SpecificGameObjectName) {
-                controller.Break();
+                BreakTrigger();
             }
         } else if (IsTagInEnum(collider.tag, this.Tags)) {
-            controller.Break();
+            BreakTrigger();
         }
     }
 
@@ -25,10 +33,10 @@ public class TriggerBreak : MonoBehaviour {
         if (!CollisionCollider) return;
         if (SpecificGameObjectName != string.Empty) {
             if (collision.gameObject.name == SpecificGameObjectName) {
-                controller.Break();
+                BreakTrigger();
             }
         } else if (IsTagInEnum(collision.collider.tag, this.Tags)) {
-            controller.Break();
+            BreakTrigger();
         }
     }
 
@@ -39,5 +47,13 @@ public class TriggerBreak : MonoBehaviour {
             }
         }
         return false;
+    }
+
+    private void BreakTrigger() {
+        if (this.BrokenPiece != null) {
+            controller.Break(gameObject, this.BrokenPiece);
+        } else {
+            controller.BreakAll();
+        }
     }
 }
