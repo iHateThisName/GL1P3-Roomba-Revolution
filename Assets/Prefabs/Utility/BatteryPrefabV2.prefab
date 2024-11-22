@@ -56,15 +56,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 4aabda333fe36df459821a83bc259b82, type: 3}
       propertyPath: m_LocalScale.x
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4aabda333fe36df459821a83bc259b82, type: 3}
       propertyPath: m_LocalScale.y
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4aabda333fe36df459821a83bc259b82, type: 3}
       propertyPath: m_LocalScale.z
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4aabda333fe36df459821a83bc259b82, type: 3}
       propertyPath: m_LocalPosition.x
@@ -139,6 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 048c2c38f4057ad42856141e65f93ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerBattery: {fileID: 0}
+  addTime: 10
 --- !u!4 &1857771859076162835 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4aabda333fe36df459821a83bc259b82, type: 3}
