@@ -7,6 +7,7 @@ public class SoundEffectController : MonoBehaviour
     [SerializeField] private PlayerSuckPickUp PlayerSuckPickUp;
     private bool haveSucked = false;
     private bool haveBlown = false;
+    public bool isInWater;
 
     [Header("Audio")]
     [SerializeField] private AudioSource suckStart;
@@ -17,7 +18,20 @@ public class SoundEffectController : MonoBehaviour
     [SerializeField] private AudioSource blowContinue;
     [SerializeField] private AudioSource blowEnd;
 
+    [SerializeField] private AudioSource electrocuted;
 
+    public static SoundEffectController Instance {  get; private set; }
+    public void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -54,9 +68,14 @@ public class SoundEffectController : MonoBehaviour
             blowEnd.Play();
             haveBlown = false;
         }
-        if (hasPickup)
+
+        if (isInWater)
         {
-            suckAttach.Play();
+            electrocuted.Play();
+        }
+        else if (!isInWater)
+        {
+            electrocuted.Stop();
         }
     }
 }

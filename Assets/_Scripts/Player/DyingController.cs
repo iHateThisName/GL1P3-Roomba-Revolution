@@ -1,7 +1,4 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class DyingController : MonoBehaviour
 {
@@ -13,6 +10,8 @@ public class DyingController : MonoBehaviour
         {
             Debug.Log("Entered puddle, faster battery drain");
             timerBattery.batteryTimerFactor = timerReductionFactor; // Makes the battery drain faster when you enter the puddle
+
+            ParticleEffectsManager.Instance.isWet = true;
         }
     }
     public void OnTriggerExit(Collider collider)
@@ -21,6 +20,8 @@ public class DyingController : MonoBehaviour
         {
             Debug.Log("Exited puddle, default battery drain"); // Stops draining the batter when you go out
             timerBattery.ResetBatteryFactor();
+
+            ParticleEffectsManager.Instance.isWet = false;
         }
     }
 
