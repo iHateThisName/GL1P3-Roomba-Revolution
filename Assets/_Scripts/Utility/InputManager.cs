@@ -7,12 +7,14 @@ public class InputManager : MonoBehaviour {
     private InputAction blow;
     private InputAction look;
     private InputAction pause;
+    private InputAction dash;
 
     public bool isPaused { get; private set; } = false;
     public Vector2 MoveVector2 { get; private set; }
     public Vector2 LookVector2 { get; private set; }
     public bool isSucking { get; private set; } = false;
     public bool isBlowing { get; private set; } = false;
+    public bool isDashing { get; private set; } = false;
 
     public static InputManager Instance { get; private set; }
     private void Awake() {
@@ -46,12 +48,17 @@ public class InputManager : MonoBehaviour {
         this.pause.performed += Pause;
         //this.pause.canceled += Pause; for some stupid reason
 
+        this.dash = InputSystem.actions.FindAction("Dash");
+        this.dash.performed += Dash;
+        this.dash.canceled += Dash;
+
 
     }
     private void Move(InputAction.CallbackContext context) => this.MoveVector2 = context.ReadValue<Vector2>();
     private void Look(InputAction.CallbackContext context) => this.LookVector2 = context.ReadValue<Vector2>();
-    private void Suck(InputAction.CallbackContext context) => isSucking = !isSucking;
-    private void Blow(InputAction.CallbackContext context) => this.isBlowing = !isBlowing;
+    private void Suck(InputAction.CallbackContext context) => this.isSucking = !this.isSucking;
+    private void Blow(InputAction.CallbackContext context) => this.isBlowing = !this.isBlowing;
+    private void Dash(InputAction.CallbackContext context) => this.isDashing = !this.isDashing;
 
     // Gabriel Part sorry
     private void Pause(InputAction.CallbackContext context) {

@@ -565,7 +565,7 @@ MonoBehaviour:
     SplineCurvature: 1
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: 67.63769
+    Value: 67.637695
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -804,6 +804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 4858882609257974641}
   PlayerSuckAndBlow: {fileID: 8420746578504103771}
+  PlayerSuckPickUp: {fileID: 0}
   isInWater: 0
   suckStart: {fileID: 7458895382060970112}
   suckContinue: {fileID: 3218335599148964170}
@@ -934,6 +935,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5534d9f8290b78844adaec9b905b5a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2077754529832045471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6598681430633721232}
+  - component: {fileID: 6966624807205078765}
+  m_Layer: 8
+  m_Name: Dash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6598681430633721232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077754529832045471}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6860833642400580982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6966624807205078765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077754529832045471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d62612ad992c0a4ca833595cf268682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashForce: 80
+  dashDuration: 0.2
+  dashCooldown: 1
+  dashDirectionTransform: {fileID: 3573953733946884157}
+  playerRigidbody: {fileID: 5247458937185874972}
+  playerMovement: {fileID: 8185191715619419832}
 --- !u!1 &2923188768585933294
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,6 +1019,7 @@ Transform:
   - {fileID: 1561828931714896556}
   - {fileID: 1235233173328369765}
   - {fileID: 1867796223259479832}
+  - {fileID: 6598681430633721232}
   m_Father: {fileID: 552687926182902285}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3223639335496086246
