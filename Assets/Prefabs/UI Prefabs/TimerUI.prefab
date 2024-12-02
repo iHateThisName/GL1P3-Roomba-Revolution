@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a96620e9ba8250e4d80eaab535c11924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMovement: {fileID: 8185191715619419832, guid: 6ae95690c5fa33b46a58f6d2eb4cb7b9, type: 3}
   m_slider: {fileID: 8118159770620588488}
   timer: 300
   batteryTimerFactor: 1

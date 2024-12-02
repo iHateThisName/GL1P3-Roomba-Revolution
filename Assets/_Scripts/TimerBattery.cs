@@ -1,15 +1,24 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
+using UnityEngine.Splines.Interpolators;
 
 public class TimerBattery : MonoBehaviour
 {
+    public Animator animator;
+    public PlayerMovement playerMovement;
+    [SerializeField]
+    private PlayerSuckAndBlow playerSuckAndBlow;
+    [SerializeField]
+    private PlayerDash playerDash;
 
     public Slider m_slider;
     public float timer;
     public float batteryTimerFactor = 1.0f;
     private float batteryTimerFactorDefault;
-    
+    private float deathTimer = 0f;
 
     public Image m_FillImage;
 
@@ -29,10 +38,12 @@ public class TimerBattery : MonoBehaviour
     {
         m_time = timer;
         m_slider.value = m_time;
+        playerMovement.moveSpeed = 7f;
+        ParticleEffectsManager.Instance.isDead = false;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void Update()
     {
         /*
         m_time -= Time.deltaTime;
@@ -44,6 +55,7 @@ public class TimerBattery : MonoBehaviour
         m_slider.value = timer;
         m_FillImage.color = Color.Lerp(m_fullTime, m_noTime, m_time);
         */
+        Debug.Log(m_time);
 
         if (m_time > 0)
         {
@@ -51,13 +63,25 @@ public class TimerBattery : MonoBehaviour
             m_slider.value = m_time / timer;
             if (m_slider.value <= 75)
             {
-                m_FillImage.color = Color.Lerp (m_noTime, m_fullTime, m_time / timer);
+                m_FillImage.color = Color.Lerp(m_noTime, m_fullTime, m_time / timer);
             }
 
         }
-        else
+        else if (m_time < 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            playerMovement.moveSpeed = 0f;
+            deathTimer += Time.deltaTime;
+            ParticleEffectsManager.Instance.isDead = true;
+            bool currentValue = animator.GetBool("FadeOut");
+            playerSuckAndBlow.enabled = false;
+            playerDash.enabled = false;
+            animator.SetBool("FadeOut", true);
+            if (deathTimer > 3)
+            {
+                Debug.Log("Loading new scene");
+                //Helper.currentScene = (EnumScene)SceneManager.GetActiveScene().buildIndex;
+                GameManager.Instance.LoadScene((EnumScene)SceneManager.GetActiveScene().buildIndex);
+            }
         }
     }
     public void ResetBatteryFactor()

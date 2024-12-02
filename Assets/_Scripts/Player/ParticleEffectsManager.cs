@@ -5,9 +5,11 @@ public class ParticleEffectsManager : MonoBehaviour {
 
     [SerializeField] private ParticleSystem SuckEffect;
     [SerializeField] private ParticleSystem BlowEffect;
+    [SerializeField] private ParticleSystem DeathEffect;
     [SerializeField] private ParticleSystem Electrocuted;
 
     public bool isWet = false;
+    public bool isDead = false;
 
     public static ParticleEffectsManager Instance { get; private set; }
     private void Awake()
@@ -21,27 +23,65 @@ public class ParticleEffectsManager : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-    private void Update() {
 
-        if (InputManager.Instance.isSucking) {
+    private void Start()
+    {
+        StoppEffects();
+    }
+    private void Update()
+    {
+
+        if (isDead)
+        {
+            if (DeathEffect.isStopped)
+            {
+                StoppEffects();
+                DeathEffect.Play();
+            }
+
+        } else
+        {
+            PlayEffects();
+        }
+    }
+
+    private void PlayEffects()
+    {
+        if (InputManager.Instance.isSucking)
+        {
             if (SuckEffect.isStopped) SuckEffect.Play();
-        } else if (SuckEffect.isPlaying) {
+        }
+        else if (SuckEffect.isPlaying)
+        {
             SuckEffect.Stop();
         }
 
-        if (InputManager.Instance.isBlowing) {
+        if (InputManager.Instance.isBlowing)
+        {
             if (BlowEffect.isStopped) BlowEffect.Play();
-        } else if (BlowEffect.isPlaying) {
+        }
+        else if (BlowEffect.isPlaying)
+        {
             BlowEffect.Stop();
         }
 
-        if (isWet) {
+        if (isWet)
+        {
             if (Electrocuted.isStopped) Electrocuted.Play();
             SoundEffectController.Instance.isInWater = true;
-        } else if (Electrocuted.isPlaying) {
+        }
+        else if (Electrocuted.isPlaying)
+        {
             SoundEffectController.Instance.isInWater = false;
             Electrocuted.Stop();
         }
     }
 
+    private void StoppEffects()
+    {
+        SuckEffect.Stop();
+        BlowEffect.Stop();
+        Electrocuted.Stop();
+        DeathEffect.Stop();
+    }
 }
