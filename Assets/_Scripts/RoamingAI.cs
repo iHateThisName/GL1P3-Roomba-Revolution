@@ -16,6 +16,7 @@ public class RoamingAI : MonoBehaviour
 
         if (Vector3.Distance(transform.position, targetPoint.position) < 0.1f)
         {
+            transform.LookAt(targetPoint);
             timeAtPoint = 0f; 
             MoveToNextPoint(); 
         }
