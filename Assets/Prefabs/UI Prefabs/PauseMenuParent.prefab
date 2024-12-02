@@ -538,7 +538,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3747798404241314036}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2785154678748898225}
+        m_TargetAssemblyTypeName: PauseMenuScripts, Assembly-CSharp
+        m_MethodName: OnLoadSettingsScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4097405549671745007
 GameObject:
   m_ObjectHideFlags: 0

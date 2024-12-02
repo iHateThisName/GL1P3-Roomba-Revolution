@@ -54,4 +54,9 @@ public class PauseMenuScripts : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void OnLoadSettingsScene(){
+        Helper.currentScene = (EnumScene)SceneManager.GetActiveScene().buildIndex;
+        GameManager.Instance.LoadScene(EnumScene.SettingsScene);
+    } 
+
 }

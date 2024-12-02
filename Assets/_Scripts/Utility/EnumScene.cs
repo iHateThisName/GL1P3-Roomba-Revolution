@@ -6,4 +6,5 @@ public enum EnumScene {
     Level04 = 4,
     Level05 = 5,
     LevelSelectScene = 6,
+    SettingsScene = 7,
 }
