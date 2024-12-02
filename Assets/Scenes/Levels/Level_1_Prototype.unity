@@ -147,7 +147,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29446023}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 7
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -249,8 +249,8 @@ Transform:
   m_GameObject: {fileID: 29446023}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59.74, y: 2.01, z: -3.21}
-  m_LocalScale: {x: 3.9849272, y: 2.4647, z: 13.817664}
+  m_LocalPosition: {x: 58.73, y: 2.01, z: -3.21}
+  m_LocalScale: {x: 3.9849272, y: 2.4647, z: 10.252431}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1136259494}
@@ -4364,7 +4364,10 @@ MonoBehaviour:
 
     Blow with LMB
 
-    Suck with RMB'
+    Suck with RMB
+
+    Dash with
+    Space'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
