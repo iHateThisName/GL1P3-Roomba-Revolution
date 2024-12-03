@@ -2,8 +2,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenuScripts : MonoBehaviour {
+    public GameObject soundEffectManager;
     public GameObject pauseMenu;
     private bool isPaused = false;
+    private bool isMuted = false;
     public static PauseMenuScripts Instance { get; private set; }
 
     private void Awake() {
@@ -58,5 +60,16 @@ public class PauseMenuScripts : MonoBehaviour {
         Helper.currentScene = (EnumScene)SceneManager.GetActiveScene().buildIndex;
         GameManager.Instance.LoadScene(EnumScene.SettingsScene);
     } 
+
+    public void Mute() {
+        if (!isMuted){
+            soundEffectManager.SetActive(false);
+            isMuted = true;
+        }
+        else if (isMuted){
+            soundEffectManager.SetActive(true);
+            isMuted = false;
+        }
+    }
 
 }
