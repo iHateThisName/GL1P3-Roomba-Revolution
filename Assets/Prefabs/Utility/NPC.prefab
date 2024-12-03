@@ -534,7 +534,8 @@ MonoBehaviour:
     m_Bits: 64
   enemyDialogue: {fileID: 2828124461728313916}
   roamingAI: {fileID: 7920142094662238953}
-  dialogTemplate: {fileID: 0}
+  dialogTemplate: {fileID: 7004011895968372989}
+  triggerCollider: {fileID: 5188077324550304650}
 --- !u!65 &5188077324550304650
 BoxCollider:
   m_ObjectHideFlags: 0
