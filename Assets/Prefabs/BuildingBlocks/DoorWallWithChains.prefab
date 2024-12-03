@@ -1168,6 +1168,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4534515931950445024, guid: c7a65e737bc03794aac407ff06cd7703, type: 3}
+      propertyPath: outlineMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4534515931950445024, guid: c7a65e737bc03794aac407ff06cd7703, type: 3}
+      propertyPath: outlineColor.b
+      value: 0.14830555
+      objectReference: {fileID: 0}
+    - target: {fileID: 4534515931950445024, guid: c7a65e737bc03794aac407ff06cd7703, type: 3}
+      propertyPath: outlineColor.g
+      value: 0.645283
+      objectReference: {fileID: 0}
+    - target: {fileID: 4534515931950445024, guid: c7a65e737bc03794aac407ff06cd7703, type: 3}
+      propertyPath: outlineColor.r
+      value: 0.12540402
+      objectReference: {fileID: 0}
     - target: {fileID: 4927559178258228516, guid: c7a65e737bc03794aac407ff06cd7703, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6
@@ -1224,6 +1240,10 @@ PrefabInstance:
       propertyPath: DoorWithHinges
       value: 
       objectReference: {fileID: 6818307151001686702}
+    - target: {fileID: 8418466279957696771, guid: c7a65e737bc03794aac407ff06cd7703, type: 3}
+      propertyPath: MainLockOutline
+      value: 
+      objectReference: {fileID: 8714527181380584649}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2205131470471662162, guid: c7a65e737bc03794aac407ff06cd7703, type: 3}
@@ -1247,6 +1267,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 892531400449866798, guid: c7a65e737bc03794aac407ff06cd7703, type: 3}
   m_PrefabInstance: {fileID: 5052456572784768297}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8714527181380584649 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4534515931950445024, guid: c7a65e737bc03794aac407ff06cd7703, type: 3}
+  m_PrefabInstance: {fileID: 5052456572784768297}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5830102553695737427
 PrefabInstance:
   m_ObjectHideFlags: 0

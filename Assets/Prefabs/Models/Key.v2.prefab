@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 7333350966027147819}
   - component: {fileID: 4759268101902859528}
   - component: {fileID: 3715587111518764817}
+  - component: {fileID: 6108321004528248877}
   m_Layer: 0
   m_Name: Key
   m_TagString: SuckAndPickup
@@ -135,6 +136,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6108321004528248877
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444286955786789396}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2534964839176971238, guid: bad017f756b7a09449acec174bad90c5, type: 3}
 --- !u!1 &5078119615325640802
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +324,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.8613044, y: 2.1992898, z: 0.14471373}
   m_Center: {x: -0.069347814, y: 0.8011985, z: -0.004669845}
@@ -318,5 +341,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorController: {fileID: 0}
-  roomba: {fileID: 0}
-  bc: {fileID: 0}

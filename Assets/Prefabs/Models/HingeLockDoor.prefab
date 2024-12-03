@@ -343,6 +343,7 @@ MonoBehaviour:
   ChainsAndLocks: {fileID: 3887017549970896715}
   Door: {fileID: 1609521073723316148}
   DoorWithHinges: {fileID: 9077536697554260259}
+  MainLock: {fileID: 8185511441483633667}
 --- !u!65 &7745967936163415595
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -375,6 +376,7 @@ GameObject:
   - component: {fileID: 2870549665019117456}
   - component: {fileID: 1297484076417073067}
   - component: {fileID: 3620081572903210218}
+  - component: {fileID: 4534515931950445024}
   m_Layer: 7
   m_Name: Lock (1)
   m_TagString: Untagged
@@ -451,6 +453,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4534515931950445024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8185511441483633667}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 4
+  outlineColor: {r: 0.0037735105, g: 0.0037735105, b: 0.0037735105, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &9077536697554260259
 GameObject:
   m_ObjectHideFlags: 0

@@ -110,6 +110,11 @@ public class PlayerSuckAndBlow : MonoBehaviour {
             Vector3 offsetPosition = pickUpLocation.position - (Offset.position - pickableRigidBody.transform.position);
             //pickableRigidBody.transform.SetPositionAndRotation(offsetPosition, pickUpLocation.rotation * Quaternion.Inverse(Offset.parent.localRotation));
             pickableRigidBody.transform.position = offsetPosition;
+
+            if (pickableRigidBody.gameObject.name.ToLower().Contains("key")) {
+                KeyController keyController = pickableRigidBody.gameObject.transform.GetComponentInChildren<KeyController>();
+                keyController.HighLightDoor();
+            }
         } else {
             // Fallback
             pickableRigidBody.transform.SetPositionAndRotation(pickUpLocation.position, transform.parent.parent.rotation);
