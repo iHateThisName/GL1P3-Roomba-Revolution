@@ -2,12 +2,18 @@ using UnityEngine;
 
 public class EnemyDialogue : MonoBehaviour
 {
-    public GameObject enemyDialoge;
-    //private bool isCloseEnough = false;
-    private DialogTemplate dialogTemplate;
+    private float rotationSpeed = 5f;
+
     private bool isTalking = false;
 
-    [SerializeField] private GameObject playerDialogueAvailable;
+    [SerializeField]
+    private GameObject textBouble;
+
+    [SerializeField]
+    private DialogTemplate dialogTemplate;
+
+    [SerializeField]
+    protected RoamingAI roamingAI;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 public static EnemyDialogue instance {  get; private set; }
 
@@ -35,9 +41,10 @@ public static EnemyDialogue instance {  get; private set; }
         {
             if (!isTalking)
             {
-                playerDialogueAvailable.SetActive(true);
-                //isTalking = true;
+                isTalking = true;
+                textBouble.SetActive(true);
                 dialogTemplate.DialougeStart();
+                roamingAI.enabled = false;
             }
         }
     }
@@ -46,29 +53,11 @@ public static EnemyDialogue instance {  get; private set; }
     {
         if (Collider.CompareTag("Player"))
         {
-            //isCloseEnough = false;
-
-            playerDialogueAvailable.SetActive(false);
-
             dialogTemplate.StopAllCoroutines();
             dialogTemplate.DialougeLeft();
-            //isTalking = false;
+            textBouble.SetActive(false);
+            roamingAI.enabled =true;
+            isTalking = false;
         }
     }
-    
-    private void Start() => dialogTemplate = enemyDialoge.GetComponent<DialogTemplate>();
-
-    /*
-    private void FixedUpdate()
-    {
-        if (isCloseEnough && !isTalking)
-        {
-            
-        }
-        else if (!isCloseEnough)
-        {
-
-        }
-    }
-    */
 }

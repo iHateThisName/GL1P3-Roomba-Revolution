@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -15,29 +14,9 @@ public class DialogTemplate : MonoBehaviour
     //The speed at which letters appear
     private float typingSpeed = 0.04f;
 
-    public static DialogTemplate instance {  get; private set; }
-    private void Awake()
-    {
-        if( instance == null)
-        {
-            instance = this;
-        } else
-        {
-            Destroy(gameObject);
-        }
-    }
-    /*
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            string[] currentDialog = dialogText[currentDialogElement].Split('#');
+    [SerializeField]
+    private Animator m_animator;
 
-            StartCoroutine(TypeText(currentDialog));
-
-        }
-    }
-    */
     public void DialougeStart()
     {
         StartCoroutine(TypeText(dialogText));
@@ -47,19 +26,19 @@ public class DialogTemplate : MonoBehaviour
         StopAllCoroutines();
         currentDialogElement--;
         Debug.LogWarning("Trigger Zone Left");
+        textBox.text = "";
+        bool currentValue = m_animator.GetBool("Revolution");
+        m_animator.SetBool("Revolution", false);
     }
     IEnumerator TypeText(string[] currentDialog)
     {
         textBox.text = "";
 
-        foreach (string line in currentDialog)
-        {
+        foreach (string line in currentDialog) {
 
 
-            foreach (char c in line)
-            {
-                if (c == '+')
-                {
+            foreach (char c in line) {
+                if (c == '+') {
                     textBox.text += "\n";
                     continue;
                 }
@@ -72,9 +51,12 @@ public class DialogTemplate : MonoBehaviour
 
 
             }
+            currentDialogElement++;
             yield return new WaitForSeconds(2f);
             textBox.text = "";
 
         }
+        bool currentValue = m_animator.GetBool("Revolution");
+        m_animator.SetBool("Revolution", true);
     }
 }
