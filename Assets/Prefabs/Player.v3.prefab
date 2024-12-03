@@ -2319,6 +2319,10 @@ PrefabInstance:
       propertyPath: playerSuckAndBlow
       value: 
       objectReference: {fileID: 8420746578504103771}
+    - target: {fileID: 7750839811709020238, guid: aa025f12f3cbd4d42b1461931cd3e05c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8346983589652209784, guid: aa025f12f3cbd4d42b1461931cd3e05c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2525,9 +2529,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuParent
       objectReference: {fileID: 0}
-    - target: {fileID: 4227753380370768177, guid: 147122a3fff6a41428b92afc2ba64b63, type: 3}
+    - target: {fileID: 4097405549671745007, guid: 147122a3fff6a41428b92afc2ba64b63, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4227753380370768177, guid: 147122a3fff6a41428b92afc2ba64b63, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4720394810726393859, guid: 147122a3fff6a41428b92afc2ba64b63, type: 3}
       propertyPath: m_LocalPosition.x
