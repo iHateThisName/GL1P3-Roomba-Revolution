@@ -190,7 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72fc35b3cb9c7044f8c5a420adefbed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Camera: {fileID: 0}
 --- !u!1 &5167701372240868793
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +199,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 542279059656323435}
-  - component: {fileID: 1173333457977492723}
   m_Layer: 0
   m_Name: ParticleController
   m_TagString: Untagged
@@ -224,24 +222,6 @@ Transform:
   - {fileID: 3116914181968503456}
   m_Father: {fileID: 7335872864334669452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1173333457977492723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5167701372240868793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8660702f8c428ab49a0fddc6c26c6c2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SuckEffect: {fileID: 8587165858978682135}
-  BlowEffect: {fileID: 8587165858978682135}
-  DeathEffect: {fileID: 8587165858978682135}
-  Electrocuted: {fileID: 8587165858978682135}
-  isWet: 0
-  isDead: 0
 --- !u!1 &8826653770615469383
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +437,7 @@ Transform:
   m_GameObject: {fileID: 9050206362514912238}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -41.440315, y: 9.957359, z: -22.0373}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -493,9 +473,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9459cf2b45501af4381e8048438fa028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: []
+  points:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   speed: 3
   maxTimeAtPoint: 10
+  rb: {fileID: 3828678753957891235}
 --- !u!114 &7004011895968372989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,9 +495,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 4352359513230739596}
   dialogText:
-  - Ow!
-  - Oh, Hello. How are you doing?
-  - Revolution you say? I'm all for it!
+  - Oh hey!
+  - You managed to get through the locked door?
+  - I've been stuck here for years.
+  - Oh you're planning a revolution?
+  - Oh, for sure I'm in!
   currentDialogElement: 0
   m_animator: {fileID: 6480986255222405535}
 --- !u!114 &6548213280796073563
@@ -527,7 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf43c460a56ac8b4a88b81739fe39183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleEffectsManager: {fileID: 1173333457977492723}
+  DeathEffect: {fileID: 8587165858978682135}
   particleDeath: {fileID: 6720286273095538217}
   wallLayer:
     serializedVersion: 2
@@ -582,7 +569,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &927152894280605957
 BoxCollider:

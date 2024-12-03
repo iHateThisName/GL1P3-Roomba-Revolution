@@ -3,8 +3,8 @@ using UnityEngine;
 public class NPCDeath : MonoBehaviour
 {
     [SerializeField]
-    private ParticleEffectsManager particleEffectsManager;
-
+    private ParticleSystem DeathEffect;
+    
     [SerializeField]
     private GameObject particleDeath;
 
@@ -14,6 +14,7 @@ public class NPCDeath : MonoBehaviour
     [SerializeField]
     private EnemyDialogue enemyDialogue;
 
+    [Header("AI")]
     [SerializeField]
     private RoamingAI roamingAI;
 
@@ -29,7 +30,7 @@ public class NPCDeath : MonoBehaviour
     {
         if ((wallLayer.value & (1 << collision.gameObject.layer)) != 0) {
             Debug.Log("Ouchie, I hit a wall.");
-            particleEffectsManager.isDead = true;
+            DeathEffect.Play();
             Destroy(enemyDialogue);
             Destroy(roamingAI);
             Destroy(dialogTemplate);
