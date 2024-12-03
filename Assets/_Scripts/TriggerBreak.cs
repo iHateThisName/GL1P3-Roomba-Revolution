@@ -12,6 +12,7 @@ public class TriggerBreak : MonoBehaviour {
 
     [Header("Break")]
     [SerializeField] private GameObject BrokenPiece;
+    public bool isBrokenByDash = true;
 
     private void Start() {
         if (this.BrokenPiece != null) {

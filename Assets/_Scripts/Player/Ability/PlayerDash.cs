@@ -30,7 +30,7 @@ public class PlayerDash : MonoBehaviour {
         if (!canDash && (wallLayer.value & (1 << collision.gameObject.layer)) > 0) {
             StopCoroutine(Dash());
             StartCoroutine(SmoothBounceForce());
-        } else if (!canDash && collision.collider.CompareTag(EnumTag.DashBreakable.ToString())) {
+        } else if (!canDash && collision.collider.CompareTag(EnumTag.DashBreakable.ToString()) && collision.collider.GetComponent<TriggerBreak>().isBrokenByDash) {
             StopCoroutine(Dash());
             collision.collider.GetComponent<TriggerBreak>().BreakTrigger();
             StartCoroutine(SmoothBounceForce());
