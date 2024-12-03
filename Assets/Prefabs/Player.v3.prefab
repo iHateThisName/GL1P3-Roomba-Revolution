@@ -764,6 +764,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5629805797254912396}
+  - component: {fileID: 7759182009102378539}
   m_Layer: 8
   m_Name: UI
   m_TagString: Untagged
@@ -789,6 +790,19 @@ Transform:
   - {fileID: 6898575562193372758}
   m_Father: {fileID: 552687926182902285}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7759182009102378539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573111631901375656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75b13f51e1c39054e87285e774afb73b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  go: {fileID: 6987590136477637977}
 --- !u!1 &1642458052267784662
 GameObject:
   m_ObjectHideFlags: 0
@@ -2296,6 +2310,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fade Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5960141124578175600, guid: 98d6e90f9d2eaaa458b8b7535bdc7136, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7922655412666642815, guid: 98d6e90f9d2eaaa458b8b7535bdc7136, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2389,6 +2407,11 @@ Animator:
 --- !u!224 &6898575562193372758 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7922655412666642815, guid: 98d6e90f9d2eaaa458b8b7535bdc7136, type: 3}
+  m_PrefabInstance: {fileID: 3624910562114680617}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6987590136477637977 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5960141124578175600, guid: 98d6e90f9d2eaaa458b8b7535bdc7136, type: 3}
   m_PrefabInstance: {fileID: 3624910562114680617}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6628483106883921643

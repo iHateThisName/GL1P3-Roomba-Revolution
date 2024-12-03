@@ -34,10 +34,10 @@ public class PlayerDash : MonoBehaviour {
             StopCoroutine(Dash());
             collision.collider.GetComponent<TriggerBreak>().BreakTrigger();
             StartCoroutine(SmoothBounceForce());
-            Debug.Log("DashBreak");
+            //Debug.Log("DashBreak");
         }
 
-        Debug.Log("Collison " + collision.collider.tag);
+        //Debug.Log("Collison " + collision.collider.tag);
     }
 
     private IEnumerator Dash() {
