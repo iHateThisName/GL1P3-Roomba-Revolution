@@ -567,7 +567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4720394810726393859
 Transform:
   m_ObjectHideFlags: 0
@@ -596,6 +596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 931f5fc9e52b62d4c8cc9e233d2c9da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundEffectManager: {fileID: 0}
   pauseMenu: {fileID: 4227753380370768177}
 --- !u!1 &4220205174295826495
 GameObject:
