@@ -45,18 +45,6 @@ public class TimerBattery : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        /*
-        m_time -= Time.deltaTime;
-        Debug.Log(timer);
-        if (timer < 0)
-        {
-            Debug.Log("Man U dead as hell");
-        }
-        m_slider.value = timer;
-        m_FillImage.color = Color.Lerp(m_fullTime, m_noTime, m_time);
-        */
-        Debug.Log(m_time);
-
         if (m_time > 0)
         {
             m_time -= Time.deltaTime * batteryTimerFactor;
