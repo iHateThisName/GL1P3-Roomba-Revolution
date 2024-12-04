@@ -46,7 +46,7 @@ public class InputManager : MonoBehaviour {
 
         this.pause = InputSystem.actions.FindAction("Pause");
         this.pause.performed += Pause;
-        //this.pause.canceled += Pause; for some stupid reason
+        this.pause.canceled += Pause;
 
         this.dash = InputSystem.actions.FindAction("Dash");
         this.dash.performed += Dash;
