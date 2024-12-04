@@ -12734,7 +12734,7 @@ GameObject:
   - component: {fileID: 1159039275}
   - component: {fileID: 1159039274}
   - component: {fileID: 1159039273}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InsideWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14551,7 +14551,7 @@ GameObject:
   - component: {fileID: 1596017202}
   - component: {fileID: 1596017201}
   - component: {fileID: 1596017200}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InsideWall(1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20355,6 +20355,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1573111631901375656, guid: 6ae95690c5fa33b46a58f6d2eb4cb7b9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2423517284688181248, guid: 6ae95690c5fa33b46a58f6d2eb4cb7b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.3090808
@@ -20387,9 +20391,21 @@ PrefabInstance:
       propertyPath: timer
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 7637368273646604636, guid: 6ae95690c5fa33b46a58f6d2eb4cb7b9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7637368273646604636, guid: 6ae95690c5fa33b46a58f6d2eb4cb7b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -49.785
+      objectReference: {fileID: 0}
     - target: {fileID: 8195305701596748138, guid: 6ae95690c5fa33b46a58f6d2eb4cb7b9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8195305701596748138, guid: 6ae95690c5fa33b46a58f6d2eb4cb7b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -49.320023
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
