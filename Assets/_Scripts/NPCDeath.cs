@@ -1,14 +1,13 @@
 using UnityEngine;
 
-public class NPCDeath : MonoBehaviour
-{
+public class NPCDeath : MonoBehaviour {
     [SerializeField]
     private ParticleSystem DeathEffect;
-    
+
     [SerializeField]
     private GameObject particleDeath;
 
-    [SerializeField] 
+    [SerializeField]
     private LayerMask wallLayer;
 
     [SerializeField]
@@ -26,10 +25,9 @@ public class NPCDeath : MonoBehaviour
 
     // Update is called once per frame
 
-    private void OnCollisionEnter(Collision collision)
-    {
+    private void OnCollisionEnter(Collision collision) {
         if ((wallLayer.value & (1 << collision.gameObject.layer)) != 0) {
-            Debug.Log("Ouchie, I hit a wall.");
+            //Debug.Log("Ouchie, I hit a wall.");
             DeathEffect.Play();
             Destroy(enemyDialogue);
             Destroy(roamingAI);
@@ -38,6 +36,5 @@ public class NPCDeath : MonoBehaviour
             ContactPoint contact = collision.GetContact(0);
             particleDeath.transform.position = contact.point;
         }
-        else { Debug.Log(collision); }
     }
 }
