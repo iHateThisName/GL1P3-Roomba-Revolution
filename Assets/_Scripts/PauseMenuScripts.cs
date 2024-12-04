@@ -1,30 +1,30 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenuScripts : MonoBehaviour {
     public GameObject soundEffectManager;
-    public GameObject pauseMenu;
-    private bool isPaused = false;
-    private bool isMuted = false;
-    public static PauseMenuScripts Instance { get; private set; }
 
-    private void Awake() {
-        if (Instance == null) {
-            Instance = this;
-        } else {
-            Destroy(gameObject);
-        }
-    }
+    [SerializeField]
+    private GameObject pauseMenu;
+
+    [SerializeField]
+    private TMP_Text muteButton;
+
+    //private bool isPaused = false;
+    private bool isMuted = false;
+
     private void Start() {
-        isPaused = false;
+        //isPaused = false;
         Time.timeScale = 1f;
     }
     public void UnPause() {
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        isPaused = false;
+        //isPaused = false;
         pauseMenu.SetActive(false);
+        InputManager.Instance.UnPause();
     }
 
     public void MainMenu() {
@@ -36,15 +36,20 @@ public class PauseMenuScripts : MonoBehaviour {
         GetComponent<PlayerBGone>().QuitGame();
     }
 
-    public void Pause() {
-        if (isPaused) {
+    public void Pause(bool isPaused) {
+        if (!isPaused) {
             UnPause();
             return;
         }
-        if (!isPaused) {
+        if (isPaused) {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            pauseMenu.SetActive(true);
+            if (pauseMenu == null) { 
+                //Debug.Log("Wtf is going on?"); 
+            }
+            else {
+                pauseMenu.SetActive(true);
+            }
             isPaused = true;
             Time.timeScale = 0f;
         }
@@ -65,10 +70,12 @@ public class PauseMenuScripts : MonoBehaviour {
         if (!isMuted){
             soundEffectManager.SetActive(false);
             isMuted = true;
+            muteButton.text = "Unmute";
         }
         else if (isMuted){
             soundEffectManager.SetActive(true);
             isMuted = false;
+            muteButton.text = "Mute";
         }
     }
 

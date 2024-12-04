@@ -2,6 +2,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour {
+    [Header("References")]
+    [SerializeField]
+    private PauseMenuScripts pauseMenuScripts;
+
     private InputAction move;
     private InputAction suck;
     private InputAction blow;
@@ -37,22 +41,44 @@ public class InputManager : MonoBehaviour {
         this.look.canceled += Look;
 
         this.suck = InputSystem.actions.FindAction("Suck");
-        this.suck.performed += Suck;
-        this.suck.canceled += Suck;
+        this.suck.performed += ctx => { if (!isPaused) Suck(ctx); };
+        this.suck.canceled += ctx => { if (!isPaused) Suck(ctx); };
 
         this.blow = InputSystem.actions.FindAction("Blow");
-        this.blow.performed += Blow;
-        this.blow.canceled += Blow;
+        this.blow.performed += ctx => { if (!isPaused) Blow(ctx); };
+        this.blow.canceled += ctx => { if (!isPaused) Blow(ctx); };
 
         this.pause = InputSystem.actions.FindAction("Pause");
         this.pause.performed += Pause;
-        this.pause.canceled += Pause;
 
         this.dash = InputSystem.actions.FindAction("Dash");
-        this.dash.performed += Dash;
-        this.dash.canceled += Dash;
+        this.dash.performed += ctx => { if (!isPaused) Dash(ctx); };
+        this.dash.canceled += ctx => { if (!isPaused) Dash(ctx); };
+    }
 
+    private void OnDestroy()
+    {
+        this.move.performed -= Move;
+        this.move.canceled -= Move;
 
+        this.look.performed -= Look;
+        this.look.canceled -= Look;
+
+        this.suck.performed -= Suck;
+        this.suck.canceled -= Suck;
+
+        this.blow.performed -= Blow;
+        this.blow.canceled -= Blow;
+
+        this.pause.performed -= Pause;
+
+        this.dash.performed -= Dash;
+        this.dash.canceled -= Dash;
+
+        this.isBlowing = false;
+        this.isSucking = false;
+        this.isPaused = false;
+        this.isDashing = false;
     }
     private void Move(InputAction.CallbackContext context) => this.MoveVector2 = context.ReadValue<Vector2>();
     private void Look(InputAction.CallbackContext context) => this.LookVector2 = context.ReadValue<Vector2>();
@@ -60,9 +86,22 @@ public class InputManager : MonoBehaviour {
     private void Blow(InputAction.CallbackContext context) => this.isBlowing = !this.isBlowing;
     private void Dash(InputAction.CallbackContext context) => this.isDashing = !this.isDashing;
 
-    // Gabriel Part sorry
     private void Pause(InputAction.CallbackContext context) {
-        isPaused = !isPaused;
-        if (isPaused) PauseMenuScripts.Instance.Pause();
+        if (context.performed) {
+            isPaused = !isPaused;
+            Debug.Log("Is paused: " + isPaused);
+            pauseMenuScripts.Pause(isPaused);
+        }
+
+        if (this.isPaused) {
+            this.isBlowing = false;
+            this.isSucking = false;
+            this.isDashing = false;
+        }
+    }
+
+    public void UnPause()
+    {
+        if (this.isPaused) this.isPaused = false;
     }
 }
