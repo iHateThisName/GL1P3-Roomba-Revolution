@@ -15,7 +15,6 @@ public class RoamingAI : MonoBehaviour
     {
         Transform targetPoint = points[currentPointIndex].transform;
         transform.LookAt(targetPoint);
-        //transform.position = Vector3.MoveTowards(transform.position, targetPoint.position, speed * Time.deltaTime);
 
         Vector3 direction = (targetPoint.position - transform.position).normalized;
         Vector3 newPosition = transform.position + direction * 3f * Time.deltaTime;

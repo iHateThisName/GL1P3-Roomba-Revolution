@@ -481,8 +481,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799948904599422501}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.033928353, y: 0.9527065, z: 0.11591369, w: 0.2788606}
-  m_LocalPosition: {x: -2.160511, y: 0.010351479, z: 3.3744173}
+  m_LocalRotation: {x: -0.12156775, y: -0.104059964, z: -0.012816562, w: 0.9870302}
+  m_LocalPosition: {x: 0.8337307, y: 0, z: -3.9121475}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -565,7 +565,7 @@ MonoBehaviour:
     SplineCurvature: 1
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: 147.37015
+    Value: -12.030522
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -575,7 +575,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: -9.889956
+    Value: -10
     Center: 17.5
     Range: {x: -10, y: 45}
     Wrap: 0
@@ -2031,6 +2031,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 269102737785276147}
     - target: {fileID: 6536047456578124987, guid: aa025f12f3cbd4d42b1461931cd3e05c, type: 3}
+      propertyPath: playerDash
+      value: 
+      objectReference: {fileID: 4822950051489248054}
+    - target: {fileID: 6536047456578124987, guid: aa025f12f3cbd4d42b1461931cd3e05c, type: 3}
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 8185191715619419832}
@@ -2915,7 +2919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5960141124578175600, guid: 98d6e90f9d2eaaa458b8b7535bdc7136, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7922655412666642815, guid: 98d6e90f9d2eaaa458b8b7535bdc7136, type: 3}
       propertyPath: m_Pivot.x

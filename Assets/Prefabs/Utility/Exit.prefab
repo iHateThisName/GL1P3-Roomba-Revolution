@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: 0
+  fadeOutPrefab: {fileID: 5960141124578175600, guid: 08325262586b04e41bf19dde5f5ac10d, type: 3}
 --- !u!1 &8481757541519778196
 GameObject:
   m_ObjectHideFlags: 0
