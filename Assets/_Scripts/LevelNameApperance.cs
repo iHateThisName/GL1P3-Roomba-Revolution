@@ -5,8 +5,7 @@ using UnityEngine;
 using UnityEngine.Splines.Interpolators;
 using UnityEngine.UI;
 
-public class LevelNameApperance : MonoBehaviour
-{
+public class LevelNameApperance : MonoBehaviour {
     public TMP_Text uiText;
     public GameObject uiTextObject;
 
@@ -16,28 +15,23 @@ public class LevelNameApperance : MonoBehaviour
     private static int currentLevelNumber = 0;
     private float elapsedTime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    void Start() {
         string[] currentLevel = currentLevelString[currentLevelNumber].Split("#");
 
         StartCoroutine(LevelName(currentLevel));
 
-        currentLevelNumber++;
+        //currentLevelNumber++;
 
-        
+
     }
 
-    IEnumerator LevelName(string[] currentLevel)
-    {
+    IEnumerator LevelName(string[] currentLevel) {
         uiText.text = "";
         Color color = uiText.color;
         yield return new WaitForSeconds(1f);
-        foreach (string line in currentLevel)
-        {
-            foreach (char c in line)
-            {
-                if (c == '+')
-                {
+        foreach (string line in currentLevel) {
+            foreach (char c in line) {
+                if (c == '+') {
                     uiText.text += "\n";
                     continue;
                 }
@@ -46,7 +40,7 @@ public class LevelNameApperance : MonoBehaviour
             }
             while (elapsedTime < 4f) {
                 elapsedTime += Time.deltaTime;
-                color.a = Mathf.Lerp(1f , 0f, elapsedTime / 4f);
+                color.a = Mathf.Lerp(1f, 0f, elapsedTime / 4f);
                 uiText.color = color;
                 yield return null;
             }
@@ -56,6 +50,6 @@ public class LevelNameApperance : MonoBehaviour
 
         Destroy(gameObject);
     }
-    
+
 
 }

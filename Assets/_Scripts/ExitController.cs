@@ -10,6 +10,7 @@ public class ExitController : MonoBehaviour {
     private bool doorOpened = false;
     private void OnTriggerEnter(Collider collider) {
         if (collider.CompareTag("Player")) {
+            InputManager.Instance.OnDisableInput();
             Instantiate(fadeOutPrefab);
             newTime = 0;
             doorOpened = true;

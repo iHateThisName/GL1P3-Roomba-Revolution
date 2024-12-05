@@ -33,12 +33,12 @@ public class InputManager : MonoBehaviour {
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
         this.move = InputSystem.actions.FindAction("Move");
-        this.move.performed += Move;
-        this.move.canceled += Move;
+        this.move.performed += ctx => { if (!isPaused) Move(ctx); };
+        this.move.canceled += ctx => { if (!isPaused) Move(ctx); };
 
         this.look = InputSystem.actions.FindAction("Look");
-        this.look.performed += Look;
-        this.look.canceled += Look;
+        this.look.performed += ctx => { if (!isPaused) Look(ctx); };
+        this.look.canceled += ctx => { if (!isPaused) Look(ctx); };
 
         this.suck = InputSystem.actions.FindAction("Suck");
         this.suck.performed += ctx => { if (!isPaused) Suck(ctx); };
@@ -56,8 +56,7 @@ public class InputManager : MonoBehaviour {
         this.dash.canceled += ctx => { if (!isPaused) Dash(ctx); };
     }
 
-    private void OnDestroy()
-    {
+    private void OnDestroy() {
         this.move.performed -= Move;
         this.move.canceled -= Move;
 
@@ -94,14 +93,24 @@ public class InputManager : MonoBehaviour {
         }
 
         if (this.isPaused) {
-            this.isBlowing = false;
-            this.isSucking = false;
-            this.isDashing = false;
+            DisableValueInput();
         }
     }
 
-    public void UnPause()
-    {
+    private void DisableValueInput() {
+        this.MoveVector2 = Vector2.zero;
+        this.LookVector2 = Vector2.zero;
+        this.isBlowing = false;
+        this.isSucking = false;
+        this.isDashing = false;
+    }
+
+    public void UnPause() {
         if (this.isPaused) this.isPaused = false;
+    }
+
+    public void OnDisableInput() {
+        this.isPaused = true;
+        DisableValueInput();
     }
 }
