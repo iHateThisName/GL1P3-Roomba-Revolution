@@ -479,6 +479,7 @@ MonoBehaviour:
   - {fileID: 275395053}
   speed: 3
   maxTimeAtPoint: 10
+  rb: {fileID: 0}
 --- !u!136 &1459427494
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -684,8 +685,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079978507}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.10151001, y: 0.55239886, z: 0.06800339, w: 0.82457674}
-  m_LocalPosition: {x: -3.699186, y: 0, z: -1.5218482}
+  m_LocalRotation: {x: -0.033928342, y: 0.9527065, z: 0.11591369, w: 0.27886054}
+  m_LocalPosition: {x: -2.1605084, y: 0.010351457, z: 3.374417}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
