@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance { get; private set; }
     [SerializeField] private List <SoundSettings> sceneAudioSources = new List<SoundSettings>();
     [SerializeField] private GameObject soundEffectManager;
+    [SerializeField] private PauseMenuScripts pauseMenuScripts;
     
     private float mainVolumeSlider = 1f; // Backing field
     
@@ -49,7 +50,7 @@ public class SoundManager : MonoBehaviour
 
 
     public void Mute() {
-        soundEffectManager.SetActive(false);
+        pauseMenuScripts.Mute();
     }
 }
 

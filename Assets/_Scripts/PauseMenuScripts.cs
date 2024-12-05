@@ -12,11 +12,12 @@ public class PauseMenuScripts : MonoBehaviour {
     private TMP_Text muteButton;
 
     //private bool isPaused = false;
-    private bool isMuted = false;
+    private static bool isMuted = false;
 
     private void Start() {
         //isPaused = false;
         Time.timeScale = 1f;
+        soundEffectManager.SetActive(!isMuted);
     }
     public void UnPause() {
         Time.timeScale = 1f;
