@@ -1,6 +1,20 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/Materials/BallRed.mat.meta
 guid: d9fa94fde1e4aaa4eaae4d1b1d50a269
+=======
+<<<<<<< Updated upstream
+guid: 4b412e77785e39549b4abc2115fbaea0
+=======
+<<<<<<< Updated upstream:Assets/_Materials/PauseBackground.mat.meta
+guid: c3ba50ac3d5d98748b05e0e35065aac4
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes:Assets/_Materials/PauseBackground.mat.meta
 NativeFormatImporter:
+=======
+guid: 42770a46adfee284aa6d4c193c18a998
+folderAsset: yes
+DefaultImporter:
+>>>>>>> Stashed changes:Assets/_Models/Assets/Assets.meta
   externalObjects: {}
   mainObjectFileID: 2100000
   userData: 

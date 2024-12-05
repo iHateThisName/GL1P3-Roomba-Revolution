@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/Scenes/SampleScene/GabrielPauseScene.meta
 guid: 66f91d6a4bf3dde4dabfa9dc4704c0c0
+=======
+<<<<<<< Updated upstream
+guid: faa15fb5549354f4991990a88b764c1b
+=======
+guid: 534741d6af526a5498dd26022f94cc92
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes:Assets/__Scripts.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
