@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class EnemyDialogue : MonoBehaviour
-{
+public class EnemyDialogue : MonoBehaviour {
     private bool isTalking = false;
 
     [SerializeField]
@@ -13,12 +12,9 @@ public class EnemyDialogue : MonoBehaviour
     [SerializeField]
     protected RoamingAI roamingAI;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("Player"))
-        {
-            if (!isTalking)
-            {
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.collider.CompareTag("Player")) {
+            if (!isTalking) {
                 isTalking = true;
                 textBouble.SetActive(true);
                 dialogTemplate.DialougeStart();
@@ -27,20 +23,17 @@ public class EnemyDialogue : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider Collider)
-    {
-        if (Collider.CompareTag("Player"))
-        {
+    private void OnTriggerExit(Collider Collider) {
+        if (Collider.CompareTag("Player")) {
             dialogTemplate.StopAllCoroutines();
             dialogTemplate.DialougeLeft();
             textBouble.SetActive(false);
-            roamingAI.enabled =true;
+            roamingAI.enabled = true;
             isTalking = false;
         }
     }
 
-    public void onDeath()
-    {
-        OnTriggerExit();
+    public void onDeath() {
+        //OnTriggerExit();
     }
 }
