@@ -88,7 +88,6 @@ public class InputManager : MonoBehaviour {
     private void Pause(InputAction.CallbackContext context) {
         if (context.performed) {
             isPaused = !isPaused;
-            Debug.Log("Is paused: " + isPaused);
             pauseMenuScripts.Pause(isPaused);
         }
 

@@ -46,7 +46,6 @@ public class PauseMenuScripts : MonoBehaviour {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             if (pauseMenu == null) { 
-                //Debug.Log("Wtf is going on?"); 
             }
             else {
                 pauseMenu.SetActive(true);

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RoamingAI : MonoBehaviour
@@ -14,15 +15,16 @@ public class RoamingAI : MonoBehaviour
     private void Update()
     {
         Transform targetPoint = points[currentPointIndex].transform;
-        transform.LookAt(targetPoint);
+        Vector3 lookDirection = new Vector3(targetPoint.position.x, transform.position.y, targetPoint.position.z);
+        transform.LookAt(lookDirection);
 
-        Vector3 direction = (targetPoint.position - transform.position).normalized;
+        Vector3 direction = (new Vector3(targetPoint.position.x, transform.position.y, targetPoint.position.z) - transform.position).normalized;
         Vector3 newPosition = transform.position + direction * 3f * Time.deltaTime;
         rb.MovePosition(newPosition);
 
-        if (Vector3.Distance(transform.position, targetPoint.position) < 0.1f)
+        if (Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z),
+                     new Vector3(targetPoint.position.x, 0, targetPoint.position.z)) < 0.1f)
         {
-            transform.LookAt(targetPoint);
             timeAtPoint = 0f; 
             MoveToNextPoint(); 
         }
