@@ -27,6 +27,7 @@ public class NPCDeath : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision) {
         if ((wallLayer.value & (1 << collision.gameObject.layer)) != 0) {
+            enemyDialogue.onDeath();
             DeathEffect.Play();
             Destroy(enemyDialogue);
             Destroy(roamingAI);

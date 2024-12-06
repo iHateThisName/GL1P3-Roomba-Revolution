@@ -38,4 +38,9 @@ public class EnemyDialogue : MonoBehaviour
             isTalking = false;
         }
     }
+
+    public void onDeath()
+    {
+        OnTriggerExit();
+    }
 }
